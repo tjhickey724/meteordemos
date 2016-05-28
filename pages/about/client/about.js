@@ -1,11 +1,11 @@
-var myTeam =
+const team =
   [
     {name:"Tim Hickey"    , email: "tjhickey@brandeis.edu" },
-    {name:"Eyad Fallatah" , email: "fallatah@brandeis.edu" }
+    {name:"Dewar Tan" , email: "dewar0019@gmail.com" }
   ];
 
 Template.about.helpers(
  {
-   team: myTeam
+   team
  }
 )
