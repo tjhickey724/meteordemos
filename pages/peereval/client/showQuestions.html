@@ -1,0 +1,13 @@
+<template name="showQuestions">
+<h1>Questions</h1>
+<ul>
+  {{#each question in questions}}
+  {{> question_item q=question}}
+  {{/each}}
+</ul>
+</template>
+
+
+<template name="question_item">
+    <li> {{q.title}}: The question is '{{q.question}}'</li>
+</template>

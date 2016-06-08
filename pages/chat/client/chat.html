@@ -1,0 +1,18 @@
+<template name="chat">
+  <div class="jumbotron">
+    <h1>CS152aj Chat Extravanza!!</h1>
+    <p>Welcome to the CS152aj Chat room!  Be nice, Be Professional!</p>
+  </div>
+
+  <input type="text"  class="js-chatinput" >
+  <br>
+  <button class="btn btn-info btn-large js-chatsubmit">Submit</button>
+  <hr>
+  <h2>Chats!!</h2>
+  <ul>
+    {{#each chat in chatlines}}
+      <li> {{chat.text}} {{chat.createdAt}} {{chat.createdBy}}</li>
+    {{/each}}
+  </ul>
+  <hr>
+</template>
