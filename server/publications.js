@@ -3,6 +3,8 @@ Meteor.publish("theIPs",function(){return IPAddresses.find();});
 Meteor.publish("theColors",function(){return Colors.find();});
 Meteor.publish("theConnections",function(){return Connections.find();});
 Meteor.publish("theQuestions",function(){return Questions.find();});
+Meteor.publish("theAnswers",function(){return Answers.find();});
+Meteor.publish("theReviews",function(){return Reviews.find();});
 
 Meteor.publish("theChats",function(){return Chats.find();});
 

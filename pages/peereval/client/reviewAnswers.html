@@ -1,0 +1,27 @@
+<template name="reviewAnswers">
+  <button class="js-submit-review btn btn-lg btn-warning">Submit Review</button>
+  <br><br><br><br>
+  Please give a grade
+  <select class="js-rate-answer">
+    <option>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+  and write a comment
+  <br>
+  <textarea class="js-review-answer form-control bg-success" rows="5"></textarea>
+  <br>
+  explaining what was wrong and what was right with this attempted answer
+  <pre class="bg-info">
+  {{answer}}
+  </pre>
+  to this question.
+  <pre class="bg-info">
+  {{question}}
+  </pre>
+  <br>
+
+</template>

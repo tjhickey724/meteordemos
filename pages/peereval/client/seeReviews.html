@@ -1,0 +1,26 @@
+<template name="seeReviews">
+  <h1>Reviews of the answer</h1>
+  <pre>
+    {{answer.a.answer}}
+  </pre>
+  <h2> to this problem</h2>
+  <pre>
+    {{answer.q.question}}
+  </pre>
+  are in the following table:
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr><th>Rating</th><th>Review</th><th>CreatedAt</th></tr>
+    </thead>
+    <tbody>
+      {{#each r in reviewlist}}
+        <tr>
+          <td>{{r.rating}}</td>
+          <td>{{r.review}}</td>
+          <td>{{r.createdAt}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+</template>

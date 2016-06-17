@@ -1,5 +1,5 @@
 Template.chat.helpers({
-  chatlines: function(){return Chats.find()}
+  chatlines: function(){return Chats.find({}, {limit:5, sort: {createdAt: -1}})}
 })
 
 Template.chat.events({
@@ -8,7 +8,7 @@ Template.chat.events({
     console.log("the button was clicked")
     const theText = $(".js-chatinput").val();  // read the user's chat text ...
     const chatline = {text:theText, createdAt:new Date(), createdBy:Meteor.userId()};
-    Chats.insert(chatline);
+  Chats.insert(chatline);
 
   }
 
