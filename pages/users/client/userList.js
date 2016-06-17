@@ -21,5 +21,11 @@ Template.userList.events({
   'click .add-me-js': function(){
     console.log("clicked!");
     Meteor.call("getInfo");
-  }
+  },
+
+  'click .js-remove-all': function(event){
+    console.log("removing...");
+    Meteor.call("removeAll");
+  },
+
 })
