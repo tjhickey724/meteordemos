@@ -1,4 +1,20 @@
 <template name="reviewAnswers">
+  Please select an answer to review:
+  <ul>
+    {{#each answer in answers}}
+    {{> answerLink}}
+    {{/each}}
+  </ul>
+  {{#if selected}}
+  {{> reviewAnswer answer = selected}}
+  {{/if}}
+</template>
+
+<template name="answerLink">
+  <li> {{answer.answer}}</li>
+</template>
+
+<template name="reviewAnswer">
   <button class="js-submit-review btn btn-lg btn-warning">Submit Review</button>
   <br><br><br><br>
   Please give a grade
@@ -17,10 +33,6 @@
   explaining what was wrong and what was right with this attempted answer
   <pre class="bg-info">
   {{answer}}
-  </pre>
-  to this question.
-  <pre class="bg-info">
-  {{question}}
   </pre>
   <br>
 

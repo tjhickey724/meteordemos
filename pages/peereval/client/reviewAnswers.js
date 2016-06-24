@@ -1,10 +1,18 @@
 Template.reviewAnswers.helpers({
   question: function(){console.dir(this.q.question); return this.q.question},
-  answer: function(){return this.a.answer}
+  answers: function(){
+    const answerList = Answers.find({question:this.q._id});
+    return answerList}
 
 })
 
 Template.reviewAnswers.events({
+  "click js-answer-list": function(event){
+    console.log("clicked on answer list");
+  }
+})
+
+Template.reviewAnswer.events({
   "click .js-submit-review": function(event){
     console.log("you clicked on the submit review button!");
     const rating = $(".js-rate-answer").val();
@@ -14,13 +22,14 @@ Template.reviewAnswers.events({
        review:theReview,
        createdAt: new Date(),
        createdBy: Meteor.userId(),
-       question: this.a.question,
-       answer: this.a._id};
+       question: toReview.question,
+       answer: toReview._id};
     console.dir(reviewObj);
-    const myAnswer = Answers.findOne({createdBy:Meteor.userId()});
-    myAnswer.myReviews.push(this.a.createdBy);
-    Answers.update(myAnswer._id,myAnswer);
+    // I should send myAnswer to this as a parameter
+    Answers.update(myAnswer._id,{$push:{myReviews:toReview._id}});
+    Answers.update(toReview._id,{$push:{myReviewers:Meteor.userId()}});
     Reviews.insert(reviewObj);
-    Router.go('/showQuestions')
+    //Router.go('/showQuestions')
+    updateToReview();
   }
 })

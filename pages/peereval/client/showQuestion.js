@@ -26,9 +26,10 @@ Template.showQuestion.events({
         createdBy: Meteor.userId(),
         userName:Meteor.user().emails[0].address,
         myReviews:[],  // list of _id's of students reviewed by this person
+        myReviewers:[] // list of _ids of reviewers
       };
     console.dir(answerData);
     Answers.insert(answerData);
-    Router.go('/showQuestions');
+    //Router.go('/showQuestions');
   }
 })

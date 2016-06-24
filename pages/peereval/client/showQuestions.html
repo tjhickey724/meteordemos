@@ -9,7 +9,7 @@
 
 
 <template name="question_item">
-    <li> <a href="/showQuestion/{{q._id}}">{{q.title}}</a>
+    <li> <a href="/showQuestionFull/{{q._id}}">{{q.title}}</a>
       {{#if answer}} ANSWERED
       <a href="seeReviews/{{q._id}}">See reviews</a> or
       <a href="reviewAnswers/{{q._id}}">Review others answers</a>

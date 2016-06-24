@@ -1,5 +1,9 @@
-theModel = (function() { 
+theModel = (function() {
 
+/*
+  FireflyNet represents the net that the user
+	drags around the screen
+*/
 function FireflyNet(x,y,r,c) {
 	this.x=x; this.y=y; this.r=r; this.c=c;
 }
@@ -11,6 +15,16 @@ FireflyNet.prototype.caught = function(f) {
 
 function distFromOrigin(x,y) { return Math.sqrt(x*x + y*y);}
 
+/*
+  Firefly represents a firefly
+	which has a position (x,y)
+	velocity (vx,vy)
+	color c
+	and size (or radius) r
+	It moves around the screen according
+	to its velocity and bounces off the four
+	walls.
+*/
 function Firefly(x,y,r,c,vx,vy){
 	this.x=x;
 	this.y=y;
@@ -21,6 +35,10 @@ function Firefly(x,y,r,c,vx,vy){
 	this.alive = true;
 }
 
+/*
+  this updates the position of the firefly
+	and bounces it off the walls
+*/
 Firefly.prototype.update = function(dt){
 	if ((this.y + this.r >= 100) || (this.y - this.r <= 0)) this.vy *= -1;
 	if ((this.x + this.r >= 100 )|| (this.x - this.r <= 0)) this.vx *= -1;
@@ -30,6 +48,11 @@ Firefly.prototype.update = function(dt){
 }
 
 
+/*
+  This represents the firefly game
+	which consists of a set of fireflies
+	and a firefly net on a 100x100 gameboard
+*/
 function FireflyModel(){
 	this.w=100;
 	this.h=100;
@@ -41,9 +64,18 @@ function FireflyModel(){
 	this.running = false;
 }
 
+/*
+  add the firefly to the board
+*/
 FireflyModel.prototype.addFirefly = function(f){
 	this.fireflyList.push(f);
 }
+
+/*
+  update the positions of all of the fireflies
+	mark those fireflies that are caught by the net
+	remove the marked fireflies from the gameboard
+*/
 FireflyModel.prototype.update = function(){
 	var theTime = (new Date()).getTime();
 	var dt = theTime - this.lastTime; // in milliseconds
@@ -58,7 +90,7 @@ FireflyModel.prototype.update = function(){
 			   if (theNet.caught(f)) {
 				   f.alive = false;
 			   }
-		   
+
 		   }
 	   );
 	this.fireflyList = _.filter(this.fireflyList,
@@ -66,8 +98,15 @@ FireflyModel.prototype.update = function(){
 }
 
 
+/*
+  initialize the Firefly game by
+	adding two fireflies f1,f2 as specified
+	adding 100 fireflies starting at (50,50)
+	with random velocities in the range
+	  [-5,5] pixels per millisecond
+*/
 FireflyModel.prototype.init = function() {
-	
+
 	var f1 = new Firefly(50,50,5,"black",10,-5);
 	var f2 = new Firefly(50,50,10,"red",45,15);
 	theModel.addFirefly(f1);
@@ -80,7 +119,11 @@ FireflyModel.prototype.init = function() {
 	}
 }
 
-theModel = new FireflyModel(); 
+// create a firefly gameboard
+theModel = new FireflyModel();
+// initialize it
 theModel.init();
+// return the firefly game as the "model"
+// it will be updated in the gameloop...
 return theModel;
 }())
