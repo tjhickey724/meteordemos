@@ -1,7 +1,7 @@
 function draw(){
 
 	var drawContext = gameboard.getContext("2d");
-	
+
 	drawContext.fillStyle="#eee";
 	drawContext.fillRect(0,0,gameboard.width,gameboard.height);
 	drawContext.strokeStyle="#f00";
@@ -21,8 +21,9 @@ function draw(){
 			drawContext.stroke();
 		}
 	);
-	
-	
+  drawContext.font = "48px serif";
+	drawContext.strokeText("["+theModel.score+"]",50,50);
+
 	var net = theModel.net;
 	drawContext.strokeStyle = net.c;
 	drawContext.beginPath();
@@ -31,7 +32,7 @@ function draw(){
 					net.r*gameboard.width/100,
 					0,2*Math.PI,true);
 	drawContext.stroke();
-		
+
 }
 
 theView = {draw:draw};

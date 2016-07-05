@@ -1,8 +1,5 @@
 Template.draw.events({
-	"click .js-draw": function(event){
-		drawTriangle();
-	//	window.requestAnimationFrame(drawStuff);
-	},
+
 
 	"click .js-start": function(event){
 		running = true;
@@ -13,7 +10,24 @@ Template.draw.events({
 		running = false;
 	},
 
+	"click .js-draw": function(event){
+		drawTriangle();
+	//	window.requestAnimationFrame(drawStuff);
+	},
+
 })
+
+
+function drawTriangle() {
+	drawContext = drawSpace.getContext("2d");
+	drawContext.strokeStyle="#ff0000"; // or green or "#fff"
+	drawContext.moveTo(100,100);
+	drawContext.lineTo(150,100);
+	drawContext.lineTo(125,150);
+	drawContext.lineTo(100,100);
+	drawContext.stroke();
+}
+
 
 let running=true;
 
@@ -56,13 +70,3 @@ function drawStuff(){
 }
 
 //Template.draw.rendered = drawStuff;
-
-function drawTriangle() {
-	drawContext = drawSpace.getContext("2d");
-	drawContext.strokeStyle="#00ff00"; // or green or "#fff"
-	drawContext.moveTo(100,100);
-	drawContext.lineTo(150,100);
-	drawContext.lineTo(125,150);
-	drawContext.lineTo(100,100);
-	drawContext.stroke();
-}

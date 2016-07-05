@@ -44,6 +44,10 @@ Firefly.prototype.update = function(dt){
 	if ((this.x + this.r >= 100 )|| (this.x - this.r <= 0)) this.vx *= -1;
 	this.x += this.vx*dt;
 	this.y += this.vy*dt;
+	if (this.y > 100) this.y=100;
+	if (this.y < 0) this.y = 0;
+	if (this.x >100) this.x=100;
+	if (this.x<0) this.x = 0;
 
 }
 
@@ -62,6 +66,7 @@ function FireflyModel(){
 	this.lastTime = (new Date()).getTime();
 	this.counter = 0;
 	this.running = false;
+	this.score = 0;
 }
 
 /*
@@ -77,6 +82,7 @@ FireflyModel.prototype.addFirefly = function(f){
 	remove the marked fireflies from the gameboard
 */
 FireflyModel.prototype.update = function(){
+	var ffModel = this;
 	var theTime = (new Date()).getTime();
 	var dt = theTime - this.lastTime; // in milliseconds
 	this.lastTime = theTime;
@@ -89,12 +95,28 @@ FireflyModel.prototype.update = function(){
 			   f.update(dt/1000.0);
 			   if (theNet.caught(f)) {
 				   f.alive = false;
+					 if (f.c=="red") {
+						 ffModel.score = ffModel.score - 10;
+					 }else {
+						 ffModel.score = ffModel.score + 1;
+					 }
 			   }
 
 		   }
 	   );
+	let numblack = 0;
+	_.each(this.fireflylist,
+		      function(f){if (f.c=="red") numblack = numblack+1});
+	console.log(numblack);
+
 	this.fireflyList = _.filter(this.fireflyList,
 								function(f){return f.alive})
+
+	if (this.fireflyList.length==0 || numblack==0) {
+		console.log("Game Over");
+		this.running = false;
+	}
+	//console.log(this.fireflyList.length);
 }
 
 
@@ -114,7 +136,7 @@ FireflyModel.prototype.init = function() {
 	for(var i =0; i<100; i++){
 		var myvx = Math.random()*10-5;
 		var myvy = (Math.random()-0.5)*10;
-		var c = (Math.random()<0.5)?"red":"black";
+		var c = (Math.random()<0.05)?"red":"black";
 		theModel.addFirefly(new Firefly(50,50,1,c,myvx,myvy))
 	}
 }
