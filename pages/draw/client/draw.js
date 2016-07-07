@@ -10,7 +10,7 @@ Template.draw.events({
 		running = false;
 	},
 
-	"click .js-draw": function(event){
+	"click .js-draw-triangle": function(event){
 		drawTriangle();
 	//	window.requestAnimationFrame(drawStuff);
 	},
