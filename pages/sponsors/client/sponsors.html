@@ -1,8 +1,8 @@
 <template name="sponsors">
 
 	<h1>We wish we had these sponsors!</h1>
-	{{#each sponsorData}}
+	{{#each s in sponsorData}}
 		<hr/>
-		{{name}}: {{amt}} 
+		{{s.name}}: {{s.amt}}
 	{{/each}}
 </template>

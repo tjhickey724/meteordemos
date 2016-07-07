@@ -60,13 +60,16 @@ Firefly.prototype.update = function(dt){
 function FireflyModel(){
 	this.w=100;
 	this.h=100;
-	this.net = new FireflyNet(10,10,10,"green");
+	this.net = new FireflyNet(0,0,10,"green");
 	this.fireflyList = [];
 	this.bgcolor="#eee";
 	this.lastTime = (new Date()).getTime();
 	this.counter = 0;
 	this.running = false;
 	this.score = 0;
+	this.numblack=0;
+	this.gameStart = new Date();
+	this.gameTime = 0;
 }
 
 /*
@@ -83,9 +86,11 @@ FireflyModel.prototype.addFirefly = function(f){
 */
 FireflyModel.prototype.update = function(){
 	var ffModel = this;
-	var theTime = (new Date()).getTime();
+	const theDate = new Date();
+	var theTime = theDate.getTime();
 	var dt = theTime - this.lastTime; // in milliseconds
 	this.lastTime = theTime;
+	this.gameTime = (theDate - this.gameStart)/1000;
 	//var fps = 1000/(dt);
 	//console.log("fps="+fps);
 
@@ -104,15 +109,24 @@ FireflyModel.prototype.update = function(){
 
 		   }
 	   );
-	let numblack = 0;
-	_.each(this.fireflylist,
-		      function(f){if (f.c=="red") numblack = numblack+1});
-	console.log(numblack);
+	let numblack=0;
+	console.log("look at fireflies!")
+	console.dir(this.fireflyList);
+	_.each(this.fireflyList,
+		      function(f){if (f.c == "black") {
+						//console.dir(f);
+						numblack = numblack+1}
+						else {
+							//console.log(f.c)
+						}
+					});
+	theModel.numblack = numblack;
+	console.log("numblack is "+this.numblack);
 
 	this.fireflyList = _.filter(this.fireflyList,
 								function(f){return f.alive})
 
-	if (this.fireflyList.length==0 || numblack==0) {
+	if (this.fireflyList.length==0 || this.numblack==0) {
 		console.log("Game Over");
 		this.running = false;
 	}
@@ -128,17 +142,20 @@ FireflyModel.prototype.update = function(){
 	  [-5,5] pixels per millisecond
 */
 FireflyModel.prototype.init = function() {
+	theModel.fireflyList = [];
+	for(var i =0; i<110; i++){
+		const myvx = Math.random()*10-5;
+		const myvy = (Math.random()-0.5)*10;
+		const c = (i<10)?"red":"black";
+		const s = (i<5)?5:1;
 
-	var f1 = new Firefly(50,50,5,"black",10,-5);
-	var f2 = new Firefly(50,50,10,"red",45,15);
-	theModel.addFirefly(f1);
-	theModel.addFirefly(f2);
-	for(var i =0; i<100; i++){
-		var myvx = Math.random()*10-5;
-		var myvy = (Math.random()-0.5)*10;
-		var c = (Math.random()<0.05)?"red":"black";
-		theModel.addFirefly(new Firefly(50,50,1,c,myvx,myvy))
+		theModel.addFirefly(new Firefly(50,50,s,c,myvx,myvy))
 	}
+	theModel.gameStart = new Date();
+	theModel.gameTime=0;
+	theModel.score=0;
+	theModel.running=true;
+
 }
 
 // create a firefly gameboard

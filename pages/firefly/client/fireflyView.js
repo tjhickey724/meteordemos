@@ -6,6 +6,12 @@ function draw(){
 	drawContext.fillRect(0,0,gameboard.width,gameboard.height);
 	drawContext.strokeStyle="#f00";
 
+	if (!theModel.running) {
+		$(".js-startgame").html("Start");
+		drawContext.font = "48px serif";
+		drawContext.strokeText("Game Over",50,50);
+		return;
+	}
 	//console.log("drawing "+JSON.stringify(theModel.fireflyList));
 	_.each(theModel.fireflyList,
 		function(f) {
@@ -22,8 +28,9 @@ function draw(){
 		}
 	);
   drawContext.font = "48px serif";
-	drawContext.strokeText("["+theModel.score+"]",50,50);
-
+	//drawContext.strokeText("score=["+theModel.score+"]",50,50);
+  $(".js-score").html(
+		"Score: "+theModel.score+" Time: "+theModel.gameTime);
 	var net = theModel.net;
 	drawContext.strokeStyle = net.c;
 	drawContext.beginPath();

@@ -10,8 +10,8 @@ Here is our team:
 		<tr><th>Name</th><th>Email</th></tr>
 	</thead>
 	<tbody>
-{{#each team}}
-  {{> teamrow}}
+{{#each person in team}}
+  {{> teamrow t=person}}
 {{/each}}
 	</tbody>
 </table>
@@ -21,7 +21,7 @@ Here is our team:
 
 <template name="teamrow">
    <tr>
-   	  <td>{{name}}</td>
-   	  <td>{{email}}</td>
+   	  <td>{{t.name}}</td>
+   	  <td>{{t.email}}</td>
    </tr>
 </template>

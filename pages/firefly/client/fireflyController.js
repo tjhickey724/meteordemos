@@ -1,26 +1,28 @@
-var running = false;
+
 
 Template.firefly.events({
 	"click #startgame": function(event){
 		console.log("pressed start");
 
-		if (!running) {
-			theModel.running=true;
+		if (!theModel.running) {
+			// if the game is not already running
+			// initialize the model and start the game
+			// and change the label on the button to "stop"
+			theModel.init();
 			theGameLoop.run();
 			$("#startgame").html("Stop");
-
 		} else {
+			// if the game is running, then stop it
+			// and change the button label to "start"
 			theModel.running=false;
 			$("#startgame").html("Start");
-
-			
 		}
-		
+
 	}
 })
 
 Template.firefly.rendered = function(){
-	document.getElementById("gameboard").addEventListener('mousemove', 
+	document.getElementById("gameboard").addEventListener('mousemove',
 		function(e){
 			if (theModel.running) {
 
@@ -29,6 +31,3 @@ Template.firefly.rendered = function(){
 			}
 		});
 }
-
-
-
