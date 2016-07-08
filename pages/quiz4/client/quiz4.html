@@ -1,0 +1,35 @@
+<template name="quiz4">
+  <h1>Quiz 4</h1>
+  by Tim Hickey
+  <div class="row">
+    <div class="col-md-6 bg-info">
+  <h2>Update your bio below</h2>
+
+  Name: <input type="text" class="js-name"><br>
+  Bio:<br> <textarea class="js-bio" rows="5" cols="60"></textarea><br>
+  <button class="js-updatebio">Update Bio</button>
+   </div>
+   <div class="col-md-6 bg-warning">
+  {{#if bios}}
+  <h2>or select a bio to view</h2>
+    <ul>
+    {{#each bio in bios}}
+      {{> bioline b=bio}}
+    {{/each}}
+  </ul>
+  {{/if}}
+</div>
+</div>
+
+</template>
+
+<template name="bioline">
+  <li><a href="/fullbio/{{b._id}}">{{b.name}}</a></li>
+</template>
+
+<template name="fullbio">
+<div class="jumbotron">
+<h1>{{name}}</h1>
+<p>{{bio}}</p>
+</div>
+</template>
