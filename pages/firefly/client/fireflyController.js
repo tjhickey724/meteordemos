@@ -9,6 +9,7 @@ Template.firefly.events({
 			// initialize the model and start the game
 			// and change the label on the button to "stop"
 			theModel.init();
+			theModel.running = true;
 			theGameLoop.run();
 			$("#startgame").html("Stop");
 		} else {

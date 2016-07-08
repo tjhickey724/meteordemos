@@ -1,4 +1,11 @@
 function draw(){
+	// update the score!
+	$(".js-score").html(
+		"Score: "+theModel.score+
+		" Time: "+theModel.gameTime +
+		" Blackflies: "+theModel.numblack +
+		" Redflies: "+ theModel.numred
+	);
 
 	var drawContext = gameboard.getContext("2d");
 
@@ -29,8 +36,7 @@ function draw(){
 	);
   drawContext.font = "48px serif";
 	//drawContext.strokeText("score=["+theModel.score+"]",50,50);
-  $(".js-score").html(
-		"Score: "+theModel.score+" Time: "+theModel.gameTime);
+
 	var net = theModel.net;
 	drawContext.strokeStyle = net.c;
 	drawContext.beginPath();
