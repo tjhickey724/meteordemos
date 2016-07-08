@@ -1,21 +1,26 @@
 Template.draw.events({
 
-
 	"click .js-start": function(event){
 		running = true;
-		window.requestAnimationFrame(drawStuff);
+		drawStuff();
 	},
 
-	"click .js-stop": function(event){
+	"click .js-reset": function(event){
 		running = false;
+		clear();
 	},
 
 	"click .js-draw-triangle": function(event){
 		drawTriangle();
-	//	window.requestAnimationFrame(drawStuff);
 	},
 
 })
+
+function clear(){
+	drawContext = drawSpace.getContext("2d");
+	drawContext.fillStyle = "yellow";
+	drawContext.fillRect(0,0,600,300);
+}
 
 
 function drawTriangle() {
@@ -31,42 +36,41 @@ function drawTriangle() {
 
 let running=true;
 
-function decPart(x) {
-	//console.log(x-Math.floor(x));
-	return x - Math.floor(x);
-}
-
-var angle = 0;
-
 function drawStuff(){
-	var time = new Date();
+	const drawContext = drawSpace.getContext("2d");
 
-	var secs = time.getSeconds()+time.getMilliseconds()/1000.0;
-	//console.log(secs);
-	var drawContext = drawSpace.getContext("2d");
-	var my_gradient = drawContext.createLinearGradient(0,0,600,0);
-	my_gradient.addColorStop(decPart(secs/10),"red");
-	my_gradient.addColorStop(decPart(secs/10+0.33),"green");
-	my_gradient.addColorStop(decPart((secs/10+0.66)),"blue");
-	drawContext.fillStyle=my_gradient;
-
-
+	// fill the background with green
+	drawContext.fillStyle="green";
 	drawContext.fillRect(0,0,600,300);
 
+	// draw a blue rotated square
+  drawRotatedSquare(drawContext);
 
-	drawContext.save();
-	drawContext.translate(300,150);
-	drawContext.rotate(100*secs/360*(2*Math.PI));
-    drawContext.translate(-300,-150);
-	drawContext.fillStyle="blue";
-	drawContext.fillRect(250,100,100,100);
-	drawContext.restore();
-
+	// draw a red plus sign centered at (300,150)
+	// with rectangles of size 20x10 and 10x20 respectively
 	drawContext.fillStyle="red";
 	drawContext.fillRect(290,145,20,10);
 	drawContext.fillRect(295,140,10,20);
-	if (running)
+
+	if (running) {  // draw again if running == true
 		window.requestAnimationFrame(drawStuff);
+	} else {
+		clear();
+	}
+
 }
 
-//Template.draw.rendered = drawStuff;
+function drawRotatedSquare(drawContext){
+	// calculate the angle to rotate
+	const time = new Date();
+	const secs = time.getSeconds()+time.getMilliseconds()/1000.0;
+	const angle = 60*secs; // rotate 60 degrees per second
+	const angleInRadians = angle/360*(2*Math.PI);
+	// draw a rotating rectangle centered in the canvas
+	drawContext.save();
+		drawContext.translate(300,150); // go to the middle
+		drawContext.rotate(angleInRadians); // rotate
+		drawContext.fillStyle="blue";
+		drawContext.fillRect(-100,-50,200,100); // draw rectangle
+	drawContext.restore(); // forget the translation and rotation
+}

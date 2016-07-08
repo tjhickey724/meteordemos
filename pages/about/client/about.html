@@ -1,18 +1,15 @@
 <template name="about">
 <h1>About</h1>
 
-I made this page!! {{theTime}}
-<hr/>
-
 Here is our team:
-<table class="table table-condensed">
+<table class="table table-bordered">
 	<thead>
 		<tr><th>Name</th><th>Email</th></tr>
 	</thead>
 	<tbody>
-{{#each person in team}}
-  {{> teamrow t=person}}
-{{/each}}
+		{{#each person in team}}
+  		{{> teamrow t=person}}
+		{{/each}}
 	</tbody>
 </table>
 
