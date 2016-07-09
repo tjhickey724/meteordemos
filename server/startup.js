@@ -1,11 +1,16 @@
 Meteor.startup(function(){
-	if (Colors.find({}).count()==0){
-		// create some initial data for the collection...
-		Colors.insert({theColor:"red", hex:"ff0000"});
+	if (Pokedex.find().count()==0){
+		console.log("Importing Pokedex to db")
 
-		Colors.insert({theColor:"green", hex:"ff0000"});
-		Colors.insert({theColor:"blue", hex:"ff0000"});
-		Colors.insert({theColor:"aqua", hex:"ff0000"});
-		Colors.insert({theColor:"yellow", hex:"ff0000"});
+			 var data = JSON.parse(Assets.getText(
+				 "Pokemon-DB-master/pokedex.json"));
+			 console.log("data length = "+data.length);
+
+			 data.forEach(function (item, index, array) {
+				 //console.log(index+" "+JSON.stringify(item));
+					 Pokedex.insert(item);
+			 })
+			 console.log("Pokedex imported");
 	}
-}); 
+
+});
