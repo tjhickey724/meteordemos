@@ -70,9 +70,12 @@ ball.draw();
 
 
 Template.graphics.events({
-	"click #start": function(event){initGraphics();},
-	"click #stop": function(e){
-  window.cancelAnimationFrame(raf);
-  running = false;
-}
+	"click #start": function(event){
+     initGraphics();},
+
+	"click #stop": function(event){
+      window.cancelAnimationFrame(raf);
+        running = false;
+      },
+
 })

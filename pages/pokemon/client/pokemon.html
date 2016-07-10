@@ -1,13 +1,9 @@
 <template name="pokemon">
 <h1>List of Pokemon</h1>
-<ol>
-  {{#each pokemon in pokedex}}
-  {{> pokemonInfo p=pokemon}}
-  {{/each}}
-</ol>
-</template>
 
-<template name="pokemonInfo">
-  <li><a href="/pokemonData/{{p._id}}">{{p.ename}}</a>
-  </li>
+  {{#each pokemon in pokedex}}
+     <a href="/pokemonData/{{pokemon._id}}">{{pokemon.ename}}</a>
+  {{/each}}
+  <hr>
+
 </template>

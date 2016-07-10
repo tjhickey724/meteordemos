@@ -11,6 +11,11 @@ Meteor.startup(function(){
 					 Pokedex.insert(item);
 			 })
 			 console.log("Pokedex imported");
-	}
+	};
+
+// this is very insecure, but helpful for development
+	Meteor.publish('userList', function (){
+  return Meteor.users.find({});
+});
 
 });

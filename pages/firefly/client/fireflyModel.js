@@ -41,14 +41,22 @@ function Firefly(x,y,r,c,vx,vy){
 */
 Firefly.prototype.update = function(dt){
 	// if the firefly goes off the screen flip its direction
-	if ((this.y + this.r + 1 >= theModel.h) || (this.y - this.r <= 1)) this.vy *= -1;
-	if ((this.x + this.r + 1 >= theModel.w )|| (this.x - this.r <= 1)) this.vx *= -1;
+	const xspeed = Math.abs(this.vx);
+	const yspeed = Math.abs(this.vy);
+
+	if ((this.y + this.r  >= theModel.h) ) this.vy = -yspeed;
+	if ((this.y - this.r <= 0)) this.vy = yspeed;
+
+	if ((this.x + this.r >= theModel.w )) this.vx = -xspeed;
+	if ((this.x - this.r <= 0)) this.vx = xspeed;
+
 	this.x += this.vx*dt;
 	this.y += this.vy*dt;
+
 	if (this.y > theModel.h) this.y=theModel.h;
-	if (this.y < 0) this.y = 1;
-	if (this.x >theModel.w) this.x=theModel.w;
-	if (this.x<0) this.x = 1;
+	if (this.y < 0) this.y = 0;
+	if (this.x > theModel.w) this.x=theModel.w;
+	if (this.x < 0) this.x = 0;
 
 }
 
