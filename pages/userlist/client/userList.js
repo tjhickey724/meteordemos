@@ -1,6 +1,5 @@
 Template.userList.helpers({
   'users': function () {
-
     return Meteor.users.find();
   },
   'connections': function(){
@@ -24,8 +23,14 @@ Template.userList.events({
   },
 
   'click .js-remove-all': function(event){
-    console.log("removing...");
-    Meteor.call("removeAll");
+    // only let tjhickey@brandeis.edu remove everyone
+    const me = Meteor.user();
+    if (me.services.google &&
+        me.services.google.email=="tjhickey@brandeis.edu") {
+      Meteor.call("removeAll");
+    } else {
+      console.log("you are not authorized to remove all user IPs.")
+    }
   },
 
 })
