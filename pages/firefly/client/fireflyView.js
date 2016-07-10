@@ -2,9 +2,10 @@ function draw(){
 	// update the score!
 	$(".js-score").html(
 		"Score: "+theModel.score+
-		" Time: "+theModel.gameTime +
 		" Blackflies: "+theModel.numblack +
-		" Redflies: "+ theModel.numred
+		" Redflies: "+ theModel.numred +
+		" Time: "+theModel.gameTime +
+		"  "
 	);
 
 	var drawContext = gameboard.getContext("2d");

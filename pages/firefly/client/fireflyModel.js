@@ -82,6 +82,8 @@ function FireflyModel(){
 	this.numred=0;
 	this.gameStart = new Date();
 	this.gameTime = 0;
+	this.badSound = new Audio('sounds/bad.wav');
+	this.goodSound = new Audio('sounds/good.wav');
 	console.log("created a model");
 }
 
@@ -115,8 +117,10 @@ FireflyModel.prototype.update = function(){
 				   f.alive = false;
 					 if (f.c=="red") {
 						 ffModel.score = ffModel.score - 10;
+						 (new Audio('sounds/bad.wav')).play();
 					 }else {
 						 ffModel.score = ffModel.score + 1;
+						 (new Audio('sounds/good.wav')).play();
 					 }
 			   }
 
