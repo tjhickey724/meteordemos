@@ -167,15 +167,3 @@ class FireflyModel {
 }
 
 theModel = new FireflyModel();
-
-/*
-theModel = (function() {
-// create a firefly gameboard
-theModel = new FireflyModel();
-// initialize it
-theModel.init();
-// return the firefly game as the "model"
-// it will be updated in the gameloop...
-return theModel;
-}())
-*/
