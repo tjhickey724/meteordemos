@@ -21,14 +21,12 @@
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav">
 							<li><a href="{{pathFor 'about'}}">About</a></li>
+							{{#if currentUser}}
 							<li><a href="{{pathFor 'sponsors'}}">Partners</a></li>
 							<li><a href="{{pathFor 'pokemon'}}">Bills </a></li>
 							<li><a href="{{pathFor 'ReportCard'}}">Report Card</a></li>
-							<li><a href="{{pathFor 'firefly'}}">Firefly</a></li>
+							{{/if}}
 							<li><a href="{{pathFor 'contact'}}">Contact us</a></li>
-							<li><a href="{{pathFor 'chat'}}">Chat</a></li>
-							<li><a href="{{pathFor 'apidemo'}}">API Demos</a></li>
-							<li><a href="{{pathFor 'userList'}}">Users</a></li>
 						</ul>
 			    <ul class="nav navbar-nav navbar-right">
 			            {{> loginButtons}} <!-- here -->
