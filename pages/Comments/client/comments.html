@@ -8,7 +8,10 @@ Please leave a comment:
 Here are all the comments!
 <br>
 
-
-
+<ul>
+{{#each c in commentlist}}
+<li>{{c.date}}:  {{c.comment}}</li>
+{{/each}}
+</ul>
 
 </template>
