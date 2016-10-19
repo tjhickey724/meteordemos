@@ -1,0 +1,29 @@
+<template name="emergencyline">
+
+	<h1>Emergency Line</h1>
+	<table class="table table-bordered">
+	<tbody>
+	<tr> 
+		<td>Brandeis Police</td>
+		<td>781-736-3333</td>
+	</tr>
+	<tr>
+		<td>Health Center</td>
+		<td>781-736-3677</td>
+	</tr>
+	<tr>
+		<td>Rape Crisis</td>
+		<td>781-736-3370</td>
+		
+	</tr>
+	<tr>
+		<td>BEMCo</td>
+		<td>781-736-6333</td>
+	</tr>
+
+		{{#each person in team}}
+  		{{> teamrow t=person}}
+		{{/each}}
+	</tbody>
+</table>
+</template>
