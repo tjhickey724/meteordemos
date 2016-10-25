@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://localhost:3000/comments -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" class="__meteor-css__" href="./Fist Aid_files/merged-stylesheets.css">
+<title>
+		Fist Aid
+	</title>
+
+<style type="text/css"></style></head>
+<body>
+
+
+
+<script type="text/javascript">__meteor_runtime_config__ = JSON.parse(decodeURIComponent("%7B%22meteorRelease%22%3A%22METEOR%401.3.4.1%22%2C%22meteorEnv%22%3A%7B%22NODE_ENV%22%3A%22development%22%2C%22TEST_METADATA%22%3A%22%7B%7D%22%7D%2C%22PUBLIC_SETTINGS%22%3A%7B%7D%2C%22ROOT_URL%22%3A%22http%3A%2F%2Flocalhost%3A3000%2F%22%2C%22ROOT_URL_PATH_PREFIX%22%3A%22%22%2C%22appId%22%3A%2215e9utc17ek1kx123j7hk%22%2C%22autoupdateVersion%22%3A%221ff46563d9fc8704ab543069c639c9d47b6e82b2%22%2C%22autoupdateVersionRefreshable%22%3A%2288f870fe178bdca6b4384b495626403d0cbd7ab9%22%2C%22autoupdateVersionCordova%22%3A%22none%22%7D"));</script>
+
+  <script type="text/javascript" src="./Fist Aid_files/underscore.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/meteor.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/insecure.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/modules-runtime.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/modules.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/jquery.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/twbs_bootstrap.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/tracker.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/deps.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/base64.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/ejson.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/check.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/htmljs.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/id-map.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/promise.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/ecmascript-runtime.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/babel-compiler.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/ecmascript.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/babel-runtime.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/random.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/mongo-id.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/diff-sequence.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/observe-sequence.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/reactive-var.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/blaze.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/ui.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/spacebars.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/templating.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/iron_core.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/iron_dynamic-template.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/iron_layout.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/iron_url.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/iron_middleware-stack.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/iron_location.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/ordered-dict.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/geojson-utils.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/minimongo.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/retry.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/ddp-common.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/reload.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/ddp-client.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/ddp.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/ddp-server.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/allow-deny.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/mongo.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/reactive-dict.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/iron_controller.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/iron_router.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/sacha_spin.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/npm-bcrypt.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/ddp-rate-limiter.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/localstorage.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/callback-hook.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/accounts-base.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/sha.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/srp.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/accounts-password.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/jparker_crypto-core.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/jparker_crypto-md5.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/jparker_gravatar.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/session.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/stylus.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/anti_i18n.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/url.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/oauth.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/accounts-oauth.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/ian_accounts-ui-bootstrap-3.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/meteor-base.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/mobile-experience.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/blaze-html-templates.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/logging.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/standard-minifier-css.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/standard-minifier-js.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/service-configuration.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/oauth2.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/google.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/accounts-google.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/autopublish.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/less.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/webapp.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/livedata.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/hot-code-push.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/launch-screen.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/autoupdate.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/global-imports.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.EmergencyInformation.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.about.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.apidemo.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.chat.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.comments.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.contact.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.emergencyline.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.graphics.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.home.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.pokemon.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.sponsors.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.userList.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.layout.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/template.loading.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/methods.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/collections.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/router.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/EmergencyInformation.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/about.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/apidemo.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/chat.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/comments.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/fireflyController.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/fireflyGameLoop.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/fireflyModel.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/fireflyView.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/graphics.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/sponsors.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/userList.js"></script>
+  <script type="text/javascript" src="./Fist Aid_files/startup.js"></script>
+
+
+
+
+
+
+	<div class="modal" id="login-buttons-reset-password-modal-success">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title">Reset your password</h4>
+				</div>
+				<div class="modal-body">
+					
+	
+				</div>
+				<div class="modal-footer">
+					<a class="btn btn-default" id="login-buttons-dismiss-reset-password-success">Dismiss</a>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dalog -->
+	</div><!-- /.modal -->
+	
+	
+	
+	<div class="modal" id="login-buttons-message-dialog">
+		
+	</div><div class="container" style="background-image: url(&#39;images/heart.png&#39;); background-repeat: no-repeat; background-size:100%">
+
+		<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="http://localhost:3000/">
+		      	First Aid </a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      	<ul class="nav navbar-nav">
+							<li><a href="http://localhost:3000/about">About</a></li>
+							<li><a href="http://localhost:3000/sponsors">Sponsors</a></li>
+							
+							<li><a href="">Feedbacks</a></li>
+							<li><a href="http://localhost:3000/emergencyline">Emergency Line</a></li>
+
+							<li><a href="./Fist Aid_files/Fist Aid.html">Comments</a></li>
+
+
+							<li><a href="http://localhost:3000/contact">Contact us</a></li>
+							<li><a href="http://localhost:3000/chat">Chat</a></li>
+							
+							<li><a href="http://localhost:3000/userList">Users</a></li>
+						</ul>
+			    <ul class="nav navbar-nav navbar-right">
+			            
+		 
+		
+			 
+				<li id="login-dropdown-list" class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown">Sign in / Join <b class="caret"></b></a>
+		<div class="dropdown-menu">
+			
+	
+		
+			
+		<button class="login-button btn btn-block configure-button btn-danger">Configure Google</button>
+	
+		
+	
+	
+		
+			 
+				<div class="or">
+		<span class="hline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		<span class="or-text">or</span>
+		<span class="hline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	</div>
+			
+			
+		
+	
+		
+			
+		
+			
+		
+			
+		<!-- TODO: Implement more input types -->
+		
+
+		
+
+		
+
+		
+			<input id="login-email" type="email" placeholder="Email" class="form-control">
+		
+	
+		
+			
+		<!-- TODO: Implement more input types -->
+		
+
+		
+
+		
+
+		
+			<input id="login-password" type="password" placeholder="Password" class="form-control">
+		
+	
+		
+		<button class="btn btn-primary col-xs-12 col-sm-12" id="login-buttons-password" type="button">
+			
+				Sign in
+			
+		</button>
+		
+			<div id="login-other-options">
+			
+				<a id="forgot-password-link" class="pull-left">Forgot password?</a>
+			
+			
+				<a id="signup-link" class="pull-right">Create account</a>
+			
+			</div>
+		
+		
+	
+		
+	
+		</div>
+	</li>
+			
+		
+	
+	 <!-- here -->
+			    </ul>
+		    </div><!-- /.navbar-collapse -->
+
+		  </div><!-- /.container-fluid -->
+		</nav>
+
+		<!-- Here is where the actual content of the page gets inserted by the router! -->
+		Please leave a comment:
+<br>
+<textarea id="comment" cols="20" rows="10"></textarea>
+<br>
+<button id="submitcomment" class="btn btn-lg bg-primary">Submit Comment</button>
+<br>
+Here are all the comments! 
+<br>
+
+<ul>
+
+<li>Tue Oct 25 2016 14:53:04 GMT-0400 (EDT):  abc</li>
+
+</ul>
+
+	</div></body></html>

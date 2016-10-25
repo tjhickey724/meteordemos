@@ -1,0 +1,8 @@
+(function(){
+Template.__checkName("home");
+Template["home"] = new Template("Template.home", (function() {
+  var view = this;
+  return HTML.Raw('<div>\n\n  	<h1> First aid</h1>\n  	<p> The number one site for firstaid advice</p>\n\n	</div>\n	\n	<div class="row">\n		<div class="col-md-2 col-md-offset-10 bg-info">\n\n\n			<h1>Be a Hero and Save a Life!</h1>\n			<p> Have you ever found yourself in an emergency situation, wishing you had guidence to do the right thing? Imagine how much more confident you would be helping someone in need if you had First-Aid instructions with you on your phone. It is rare these days that a person who owns a phone will go anywhere without it. Here\'s a solution for you if you are every in a emergency situation, the First Aid App which provides users with expert advice for everyday emergencies. Each item will have a brief description of the problem, with instructions to help the patient, followed by "tips/Warnings" The app will also provide users with emergencie numbers and near by places on google maps </p>\n\n			<img src="images/FirstAidpic.png" width="10%" alt="First ai">\n		</div>\n	</div>\n	<div class="row">\n\n		<div class="col-md-2 col-md-offset-10 bg-warning">\n			<h1>Express your Creativity!</h1>\n			<p> We’ll give you the tools to design a variety of apps, including social media, lifestyle, entertainment, productivity, educational, and apps straight from your imagination that can be shared with family, friends, and fans the world over!</p>\n			<img src="images/tshirt.jpg" width="100%" alt="the Vertica Lounge">\n\n		</div>\n\n	</div>\n\n	<!--      This is a comment ... Lets create another row with 3 columns\n	    and a heading and paragraph and image in each\n	 -->');
+}));
+
+}).call(this);
