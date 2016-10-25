@@ -1,13 +1,7 @@
-<template name="pokemonData">
+<template name="bill">
 <ul>
-  <li> Name: {{ename}}</li>
-  <li> Attack: {{base.Attack}}</li>
-  <li> Defense: {{base.Defense}}</li>
-  <li> HP: {{base.HP}}</li>
-  <li> Speed: {{base.Speed}}</li>
-  <li> Sp_Atk: {{base.Sp_Atk}}</li>
-  <li> Sp_Def: {{base.Sp_Def}}</li>
-  <li> Type:{{#each t in type}}{{t}}{{/each}}</li>
+  <li> Title: {{title}}</li>
+  <li>Committees: {{#each c in committees}}{{c}} {{/each}}</li>
 </ul>
 
 </template>

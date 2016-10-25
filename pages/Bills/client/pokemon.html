@@ -1,9 +1,10 @@
-<template name="pokemon">
+<template name="bills">
 <h1 style="font-family:'Bookshelf Symbol 7'" class="jumbotron">Here Are The Bills In Session For Your Local Representative!</h1>
+<ul>
+{{#each bill in bills}}
+<li><a href="/bill/{{bill._id}}">{{bill.title}} ({{bill.id}})</a></li>
+{{/each}}
+</ul>
 
-  {{#each pokemon in pokedex}}
-     <a href="/pokemonData/{{pokemon._id}}">{{pokemon.ename}}</a>
-  {{/each}}
-  <hr>
 
 </template>

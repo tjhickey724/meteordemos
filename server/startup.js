@@ -12,6 +12,12 @@ Meteor.startup(function(){
 			 })
 			 console.log("Pokedex imported");
 	};
+	if (Bills.find().count()==0){
+		var data = JSON.parse(Assets.getText("bills.json"));
+		data.forEach(function(item,index,array) {
+			Bills.insert(item);
+		})
+	}
 
 // this is very insecure, but helpful for development
 	Meteor.publish('userList', function (){
