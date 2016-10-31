@@ -1,11 +1,11 @@
 <template name="layout">
-	<div class="container" style="background-color:#444">
+	<div class="fluid-container" style="background-color:#1273C5">
 
 		<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
+		    <div class="navbar-hea der">
 		      <button type="button" class="navbar-toggle collapsed"
 			  			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 		        <span class="sr-only">Toggle navigation</span>
@@ -25,6 +25,9 @@
 							<li><a href="{{pathFor 'bills'}}">Bills </a></li>
 
 							<li><a href="{{pathFor 'comments'}}">Comments </a></li>
+
+							<li><a href="{{pathFor 'Profile'}}">Profile </a></li>
+
 
 							<li><a href="{{pathFor 'ReportCard'}}">Report Card</a></li>
 							{{/if}}
