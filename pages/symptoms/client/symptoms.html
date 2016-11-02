@@ -1,14 +1,5 @@
 <template name="symptoms">
-What is your main symptom?
-<select id="symptom1">
-<option>Abdominal pain</option>
-<option>Blood in stool</option>
-<option>Chest pain</option>
-<option>cough</option>
-<option>diarrhea</option>
-<option>Difficulty swallowing</option>
 
-</select>
 <br>
 How long have you had this symptom?
 <select id="duration">
@@ -16,7 +7,28 @@ How long have you had this symptom?
 <option>Past week</option>
 
 </select>
+<html>
+<body>
 
+<form action="demo_form.asp" method="get">
+What are your symptoms ?
+  <br>
+  <input type="checkbox" name="vehicle" value="Bike"> Abdominal Pain<br>
+  <input type="checkbox" name="vehicle" value="Car" checked="checked">Blood in stool<br>
+  <input type="checkbox" name="vehicle" value="Car" checked="checked">Chest Pain<br>
+  <input type="checkbox" name="vehicle" value="Car" checked="checked">Difficulty Swallowing<br>
+  <input type="checkbox" name="vehicle" value="Car" checked="checked">Diarrhea<br>
+<input type="checkbox" name="vehicle" value="Car" checked="checked">Coughing<br>
+</form>
+
+</body>
+</html>
+<form action="demo_form.asp" method="get">
+How long have you had these symptoms for ?
+  <br>
+  <input type="checkbox" name="vehicle" value="Bike">two days<br>
+   <input type="checkbox" name="vehicle" value="Bike">one week<br>
+</form>
 
 Please write in your other symptoms
 <br>
