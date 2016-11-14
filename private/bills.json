@@ -25,5 +25,25 @@
 		"committees":["Senate - Finance"]
 
 	}
+	{
+		"title":"Stronger Together School Diversity Act of 2016",
+		"id":"S.3168",
+		"sponsors":["Murphy. Christopher S."],
+		"committees":["Senate - Health,Education,Labor, and Pensions"]
 
+	}
+	{
+		"title":"Climate Change Education Act",
+		"id":"S.3074",
+		"sponsors":["Markey,Edward J."],
+		"committees":["Senate - Commerce,Science,and Transportation"]
+
+	}
+	{
+		"title":"Graduate Students Savings Act of 2016",
+		"id":"S.3025",
+		"sponsors":["Warren, Elizabeth"],
+		"committees":["Senate - Finance"]
+
+	}
 ]
