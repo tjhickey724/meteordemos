@@ -74,27 +74,8 @@
 		"committees":["Senate - Health,Education,Labor, and Pensions"]
 
 	},
-	{
-		"title":"Studets Before Profits Act of 2015",
-		"id":"S.2098",
-		"sponsors":["Murphy, Christopher S."],
-		"committees":["Senate - Health, Education, Labor, and Pensions"]
-
-	},
-	{
-		"title":"Pell Grant Restoration Act of 2015",
-		"id":"S.2037",
-		"sponsors":["Boxer, Barbara"],
-		"committees":["Senate - Health,Education,Labor, and Pensions"]
-
-	},
-	{
-		"title":"Mental Health in Schools Act of 2015",
-		"id":"S.1588",
-		"sponsors":["Franken,AI "],
-		"committees":["Senate - Health,Education,Labor, and Pensions"]
-
-	}
+	
+	
 
 
 ]
