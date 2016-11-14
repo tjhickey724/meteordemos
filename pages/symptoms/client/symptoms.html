@@ -1,10 +1,15 @@
-<template name="symptoms">
+<template name="Symptoms">
 
 <br>
 How long have you had this symptom?
 <select id="duration">
-<option>two days</option>
-<option>Past week</option>
+<option>One days</option>
+<option>Two days</option>
+<option>Three days</option>
+<option>Four days</option>
+<option>Five days</option>
+<option>Six days</option>
+<option>Week</option>
 
 </select>
 <html>
@@ -19,18 +24,19 @@ What are your symptoms ?
   <input type="checkbox" name="vehicle" value="Car" checked="checked">Difficulty Swallowing<br>
   <input type="checkbox" name="vehicle" value="Car" checked="checked">Diarrhea<br>
 <input type="checkbox" name="vehicle" value="Car" checked="checked">Coughing<br>
+<input type="checkbox" name="vehicle" value="Car" checked="checked">Fever<br>
+<input type="checkbox" name="vehicle" value="Car" checked="checked">Back Pain<br>
+<input type="checkbox" name="vehicle" value="Car" checked="checked">Neck Pain<br>
+<input type="checkbox" name="vehicle" value="Car" checked="checked">Night Sweats<br>
+<input type="checkbox" name="vehicle" value="Car" checked="checked">Morning Sickness<br>
+<input type="checkbox" name="vehicle" value="Car" checked="checked">Anemia<br>
 </form>
 
 </body>
 </html>
-<form action="demo_form.asp" method="get">
-How long have you had these symptoms for ?
-  <br>
-  <input type="checkbox" name="vehicle" value="Bike">two days<br>
-   <input type="checkbox" name="vehicle" value="Bike">one week<br>
-</form>
 
-Please write in your other symptoms
+
+If none of these symptoms relate to your condition please write your symptoms
 <br>
 <textarea id="comment" cols="80" rows="10"></textarea>
 <br>
