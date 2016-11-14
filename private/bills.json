@@ -75,7 +75,20 @@
 
 	},
 	
-	
+	{
+		"title":"Education for all Act of 2016",
+		"id":"S.3256",
+		"sponsors":["Durbin,Richard"],
+		"committees":["Senate - Foreign Relations"]
+
+	},
+	{
+		"title":"Extending Justice for Sex Crime Victims Act of 2016",
+		"id":"S.2895",
+		"sponsors":["Feinstein, Dianne"],
+		"committees":["Senate - Judiciary"]
+
+	}
 
 
 ]
