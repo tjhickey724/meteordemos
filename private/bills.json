@@ -55,9 +55,16 @@
 	}
 	{
 		"title":"Child CARE Act",
-		"id":"S.2539",
+		"id":"S.2322",
 		"sponsors":["Casey, Robert P.,Jr. "],
 		"committees":["Senate - Finance"]
+
+	}
+	{
+		"title":"Driver Fatigue Prevention Act",
+		"id":"S.3168",
+		"sponsors":["Shumer, Charles E."],
+		"committees":["Senate - Health,Education,Labor, and Pensions"]
 
 	}
 ]
