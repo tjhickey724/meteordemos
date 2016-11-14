@@ -12,5 +12,18 @@
 		"sponsors":["Kirk Steven"],
 		"committees":["Senate- Judiciary", "House - Veterans' Affairs"]
 	}
+	{
+		"title":"A resolution commemorating 100 years of health care services provided by Planned Parenthood.",
+		"id":"S.590",
+		"sponsors":["Wyden Ron"],
+		"committees":["Senate - Health","education","labor", "pension"]
+	}
+	{
+		"title":"Youth Access to sexual health services Act of 2016",
+		"id":"S.3360",
+		"sponsors":["Hirono,Mazie K."],
+		"committees":["Senate - Finance"]
+
+	}
 
 ]
