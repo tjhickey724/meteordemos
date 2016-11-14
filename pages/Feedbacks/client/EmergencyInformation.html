@@ -1,7 +1,18 @@
 <template name="EmergencyInformation">
 	<div>
+<h3>Your opinion is important to us!</h3>
 
+Please leave a comment:
+<br>
+<textarea id="comment" cols="20" rows="10"></textarea>
+<br>
+<button id="submitcomment" class="btn btn-lg bg-primary">Submit Comment</button>
+<br>
 
-		
+<ul>
+{{#each c in commentlist}}
+<LI>{{c.date}}:  {{c.comment}}</LI>
+{{/each}}
+</ul>
 	</div>
 </template>
