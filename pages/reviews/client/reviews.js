@@ -54,14 +54,7 @@ Template.reviewForm.events({
     Reviews.insert(review);
   },
 
-  "click .deleteReview": function(event){
-    console.dir(this);
-    team = Teams.findOne({num:this.review.team});
-    Teams.update(team._id,
-      {$set:
-        {reviewers:_.without(team.reviewers,Meteor.userId())}});
-    Reviews.remove(this.review._id);
-  }
+
 });
 
 Template.reviewEntry.helpers({
@@ -70,6 +63,17 @@ Template.reviewEntry.helpers({
     const zz = Teams.findOne({num:n-0});
     console.dir(zz);
     return zz.title}
+});
+
+Template.reviewEntry.events({
+  "click .deleteReview": function(event){
+    console.dir(this);
+    team = Teams.findOne({num:this.review.team});
+    Teams.update(team._id,
+      {$set:
+        {reviewers:_.without(team.reviewers,Meteor.userId())}});
+    Reviews.remove(this.review._id);
+  }
 });
 
 Template.teamlist.helpers({
