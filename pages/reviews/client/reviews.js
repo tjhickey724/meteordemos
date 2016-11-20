@@ -14,7 +14,10 @@ Session.set("teamTitle","");
 
 Template.reviewForm.helpers({
   teams: function(){
-    return Teams.find({reviewers:{$not:{$in:[Meteor.userId()]}}})},
+    return Teams.find(
+      {reviewers:{$not:{$in:[Meteor.userId()]}}},
+      {sort:{num:1}}
+    )},
   reviews: function(){
     return Reviews.find({reviewer:Meteor.userId()})},
   numReviews: function(team ){

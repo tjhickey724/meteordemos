@@ -67,7 +67,12 @@ teams =
 		reviewers:[],
 		url:"https://sites.google.com/a/brandeis.edu/lonelypirateproductions/current-projects/release-candidate-1"},
 
-  { num:17, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:17,
+		title:'Spacecraft Shooter',
+		teamname:'Wavedash',
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/wavedash/home/rc1",
+	},
 
   { num:18,
     title:'Treasure Hunter',
