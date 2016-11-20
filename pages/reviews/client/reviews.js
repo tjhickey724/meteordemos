@@ -21,6 +21,7 @@ Template.reviewForm.helpers({
     return team.reviewers.length;},
   teamURL: function(){return Session.get("teamURL");},
   teamTitle: function(){return Session.get("teamTitle");},
+  teamMates: function(){return Session.get("teamMates");},
 });
 
 Template.yourReviews.helpers({
@@ -28,6 +29,7 @@ Template.yourReviews.helpers({
     return Reviews.find({reviewer:Meteor.userId()})},
 })
 
+Session.set("teamMates","");
 
 Template.reviewForm.events({
   "change select#team": function(event){
@@ -35,6 +37,16 @@ Template.reviewForm.events({
     const team = Teams.findOne({num:teamNum});
     Session.set("teamURL",team.url);
     Session.set("teamTitle",team.title);
+    const teamMates = Members.find({team:teamNum}).fetch();
+    console.dir(teamMates);
+    let teamMembers="by ";
+    teamMates.forEach(function(s){
+      console.dir(s.name+" -- "+teamMembers);
+      teamMembers = teamMembers.concat(s.name+" and ")
+    });
+    teamMembers = teamMembers.concat(" "+team.teamname);
+    console.dir(teamMembers);
+    Session.set("teamMates",teamMembers);
   },
 
   "click #submitReview": function(event){
