@@ -8,15 +8,35 @@ function userEmail(){
     return "no-email";
   }
 }
+Session.set("teamURL","");
+Session.set("teamTitle","");
 
-Template.reviews.helpers({
+
+Template.reviewForm.helpers({
   teams: function(){
     return Teams.find({reviewers:{$not:{$in:[Meteor.userId()]}}})},
   reviews: function(){
     return Reviews.find({reviewer:Meteor.userId()})},
+  numReviews: function(team ){
+    return team.reviewers.length;},
+  teamURL: function(){return Session.get("teamURL");},
+  teamTitle: function(){return Session.get("teamTitle");},
 });
 
-Template.reviews.events({
+Template.yourReviews.helpers({
+  reviews: function(){
+    return Reviews.find({reviewer:Meteor.userId()})},
+})
+
+
+Template.reviewForm.events({
+  "change select#team": function(event){
+    const teamNum=parseInt($("#team").val());
+    const team = Teams.findOne({num:teamNum});
+    Session.set("teamURL",team.url);
+    Session.set("teamTitle",team.title);
+  },
+
   "click #submitReview": function(event){
     const team=parseInt($("#team").val());
     console.log("you selected team "+team);
@@ -51,3 +71,7 @@ Template.reviewEntry.helpers({
     console.dir(zz);
     return zz.title}
 });
+
+Template.teamlist.helpers({
+
+})
