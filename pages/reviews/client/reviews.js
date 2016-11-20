@@ -50,7 +50,7 @@ Template.reviewForm.events({
     const theTeam = Teams.findOne({num:team});
     Teams.update(theTeam._id,{$push:{reviewers:reviewer}})
     const review=
-      {team,like,improve,rating,reviewer};
+      {team,like,improve,rating,reviewer,version:"rc1"};
     Reviews.insert(review);
   },
 
