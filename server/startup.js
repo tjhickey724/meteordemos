@@ -166,7 +166,11 @@ teams =
     url:"https://sites.google.com/a/brandeis.edu/turbotech1/home/hw9-rc1",
   },
 
-  { num:26, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:26,
+		title:'Animatrix',
+		teamname:'Animatrix Productions', 
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/animatrix/home"},
 
   { num:27,
     title:'Treasure Bay',
@@ -175,7 +179,12 @@ teams =
     url:"https://sites.google.com/a/brandeis.edu/goldenbear/home/rc1",
   },
 
-  { num:28, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:28,
+		title:'Super Mario Blender',
+		teamname:'Ultra Studios',
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/ultra-studios/business-website-services"
+	},
 
   { num:29,
     title:'SuperApple',
