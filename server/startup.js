@@ -1,10 +1,25 @@
 teams =
 [
-  { num:1, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:1,
+		title:'The Flight of Boxy',
+		teamname:'The Terabytes (formerly Blue Steel)',
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/blue-steel/home/rc1"
+	},
 
-  { num:2, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:2,
+		title:'Snowball Fight',
+		teamname:'75% Korean',
+		reviewers:[],
+		url:"https://drive.google.com/drive/folders/0BxhLJwT_SEqTTEVPdFBMd0wtRmc?usp=sharing"
+	},
 
-  { num:3, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:3,
+		title:'Room Escape',
+		teamname:'PrimeXL',
+		reviewers:[],
+		url:"https://sites.google.com/a/post.massbay.edu/clonedigitalimagen/"
+	},
 
   { num:4,
     title:'Totoro',
@@ -27,7 +42,12 @@ teams =
     url:"https://sites.google.com/a/brandeis.edu/lw-squared/rc1-page"
   },
 
-  { num:8, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:8,
+		title:'Harry Potter and His Escape',
+		teamname:'Project Mayhem',
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/cosi164team8/home"
+	},
 
   { num:9, title:'none', teamname:'none', reviewers:[], url:""},
 
@@ -44,7 +64,12 @@ teams =
     url:"https://sites.google.com/a/brandeis.edu/ma43phd/home/rc1"
   },
 
-  { num:12, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:12,
+		title:'Wander',
+		teamname:'Fireball',
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/fireball/homes"
+	},
 
   { num:13,
     title:'Superman Travelling the Sky',
@@ -59,7 +84,12 @@ teams =
     url:"https://sites.google.com/a/brandeis.edu/yumeworks/home/rc1?pli=1",
   },
 
-  { num:15, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:15,
+		title:'Final Crushing',
+		teamname:'Chimpanzee-Brandeis Co',
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/chimpanzee-brandeis-co/home/rc1"
+	},
 
   { num:16,
 		title:'Project Time Raft',
@@ -101,7 +131,12 @@ teams =
 
   { num:23, title:'none', teamname:'none', reviewers:[], url:""},
 
-  { num:24, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:24,
+		title:'Spike Evasion',
+		teamname:'Underwater Squad',
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/underwater-squad/home/release-candidate-1"
+	},
 
   { num:25,
     title:'TurboRacing',
@@ -127,7 +162,12 @@ teams =
     reviewers:[],
     url:"https://sites.google.com/a/brandeis.edu/supernova/rc1"},
 
-  { num:30, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:30,
+		title:'Go Bananas',
+		teamname:'Money Team',
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/gobananas/rc1"
+	},
 
   { num:31,
 		title:'Not Ur Ave. Game',
@@ -136,7 +176,12 @@ teams =
 		url:"https://sites.google.com/a/brandeis.edu/away-from-keyboard/"
 	},
 
-  { num:32, title:'none', teamname:'none', reviewers:[], url:""}
+  { num:32,
+		title:'Zombie Rush',
+		teamname:'Zombie Bros',
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/zombie-bros/"
+	}
 
 ];
 

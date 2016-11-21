@@ -150,3 +150,39 @@
     </tbody>
   </table>
 </template>
+
+<template name="showTeams">
+  <h1>CS164a-fall16 Release Candidate 1 Games</h1>
+  <table class="table table-bordered table-striped">
+   <thead>
+     <tr>
+       <th>Team Num</th><th>Title and Link</th>
+       <th>Production Company</th>
+       <th>Team Members</th>
+    </tr>
+   </thead>
+   <tbody>
+    {{#each team in teams}}
+    {{> showTeam team=team members= (members team)}}
+    {{/each}}
+   </tbody>
+  </table>
+</template>
+
+<template name="showTeam">
+  <tr>
+    <td> Team {{team.num}}</td>
+    <td>
+      <a href="{{team.url}}">{{team.title}}</a>
+    </td>
+    <td> {{team.teamname}}
+    </td>
+    <td>
+      <ul>
+        {{#each m in members}}
+          <li>{{m.name}}</li>
+        {{/each}}
+      </ul>
+    </td>
+  </tr>
+</template>
