@@ -49,7 +49,12 @@ teams =
 		url:"https://sites.google.com/a/brandeis.edu/cosi164team8/home"
 	},
 
-  { num:9, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:9,
+		title:'Brandeis Outbreak',
+		teamname:'Chief Nish',
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/chief-nish/hw7/release-candidate-1"
+	},
 
   { num:10,
     title:'Cat Assassin',
@@ -127,7 +132,12 @@ teams =
 
   { num:21, title:'none', teamname:'none', reviewers:[], url:""},
 
-  { num:22, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:22,
+		title:'Gonzales: El Bigote del Sur',
+		teamname:'Los Juegos Buenos',
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/los-juegos-buenos/home/rc1"
+	},
 
   { num:23, title:'none', teamname:'none', reviewers:[], url:""},
 
