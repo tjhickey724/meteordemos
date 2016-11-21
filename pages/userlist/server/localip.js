@@ -1,4 +1,4 @@
-
+Meteor.publish("connections",function(){return Connections.find();});
 
 Meteor.methods({
 
