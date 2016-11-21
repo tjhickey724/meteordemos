@@ -10,6 +10,9 @@ function userEmail(){
 }
 Session.set("teamURL","");
 Session.set("teamTitle","");
+Session.set("teamMates","");
+Session.set("teamNum",0);
+
 
 Meteor.subscribe("teams");
 Meteor.subscribe("members");
@@ -35,9 +38,6 @@ Template.yourReviews.helpers({
   reviews: function(){
     return Reviews.find({reviewer:Meteor.userId()})},
 })
-
-Session.set("teamMates","");
-Session.set("teamNum",0);
 
 Template.reviewForm.events({
   "change #team": function(event){
@@ -77,6 +77,9 @@ Template.reviewForm.events({
     const review=
       {team,like,improve,rating,reviewer,version:"rc1"};
     Reviews.insert(review);
+    $("#likeAboutGame").val("");
+    $("#improveGame").val("");
+    
   },
 
   "click #teamGo": function (event){
