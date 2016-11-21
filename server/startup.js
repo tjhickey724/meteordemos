@@ -360,7 +360,7 @@ Meteor.methods({
 		});
 		members.forEach(function(s){
       console.log(s.name);
-			Members.update({email:s.email},{$set:{name:s.name.trim()}});
+			Members.update({name:s.name},{$set:{email:s.email.trim()}});
       console.dir(Members.findOne({email:s.email}));
 		})
 	},
