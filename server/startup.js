@@ -33,7 +33,12 @@ teams =
     reviewers:[],
     url:"https://sites.google.com/a/brandeis.edu/cs164a-fall16/homework/hw9"},
 
-  { num:6, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:6,
+		title:'Invaders of Space',
+		teamname:'Picks_R',
+		reviewers:[],
+		url:"https://sites.google.com/a/brandeis.edu/picks_r/rc1"
+	},
 
   { num:7,
     title:'Find the Landscape',
