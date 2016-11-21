@@ -350,6 +350,10 @@ Meteor.methods({
 
 })
 
+Meteor.publish("teams",function(){return Teams.find();})
+Meteor.publish("members",function(){return Members.find();})
+Meteor.publish("reviews",function(){return Reviews.find({reviewer:this.userId});})
+
 Meteor.startup(function(){
   if (Teams.find().count()==0){
 		console.log("loading in teamdata");

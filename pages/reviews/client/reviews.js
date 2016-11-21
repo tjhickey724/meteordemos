@@ -11,6 +11,10 @@ function userEmail(){
 Session.set("teamURL","");
 Session.set("teamTitle","");
 
+Meteor.subscribe("teams");
+Meteor.subscribe("members");
+Meteor.subscribe("reviews");
+
 
 Template.reviewForm.helpers({
   teams: function(){
