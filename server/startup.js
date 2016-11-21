@@ -344,7 +344,7 @@ Meteor.methods({
 			Teams.update({num:s.num},{$set:{title:s.title,teamname:s.teamname,url:s.url}});
 		});
 		members.forEach(function(s){
-			Members.update({name:s.name},s);
+			Members.update({email:s.email},s);
 		})
 	},
 
