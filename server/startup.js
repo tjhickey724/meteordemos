@@ -236,7 +236,7 @@ var members =
 {team:14, name:"Chen, Jacky",	email:"sychen1996@brandeis.edu"},
 {team:28, name:"Chen, Jialong",	email:"jlch@brandeis.edu"},
 {team:4, name:"Chen, Lian",	email:"lianc@brandeis.edu"},
-{team:22, name:"Chen, Steven",	email:"stevenchen@brandeis.edu"},
+{team:22, name:"Chen,  Steven",	email:"stevenchen@brandeis.edu"},
 {team:16, name:"Chen, Steven",	email:"stchen10@brandeis.edu"},
 {team:3, name:"Chen, Xi",	email:"shibu@brandeis.edu"},
 {team:29, name:"Chen, Yujin",	email:"ychen02@brandeis.edu"},
@@ -359,7 +359,9 @@ Meteor.methods({
 			Teams.update({num:s.num},{$set:{title:s.title,teamname:s.teamname,url:s.url}});
 		});
 		members.forEach(function(s){
-			Members.update({email:s.email},s);
+      console.log(s.name);
+			Members.update({email:s.email},{$set:{name:s.name.trim()}});
+      console.dir(Members.findOne({email:s.email}));
 		})
 	},
 
