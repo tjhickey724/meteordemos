@@ -9,11 +9,6 @@
 
 </template>
 
-<template name="teamlist">
-  <option value="{{team.num}}">Team:{{team.num}},
-    <a href="{{team.url}}">{{team.title}}</a> with {{numReviews}} reviews
-  </option>
-</template>
 
 <template name="reviewEntry">
 <tr><td>
@@ -31,22 +26,48 @@
 </template>
 
 
+<template name="teamlist">
+  <option value="{{team.num}}">Team:{{team.num}},
+    <a href="{{team.url}}">{{team.title}}</a> with {{numReviews}} reviews
+  </option>
+</template>
+
+
+<template name="teamlist2">
+  <div class="radio">
+    <label>
+      <input type="radio" name="team" class="teamRadio" value="{{team.num}}">
+      Team:{{team.num}},
+      <a href="{{team.url}}">{{team.title}}</a> with {{numReviews}} reviews
+    </label>
+  </div>
+</template>
+
 <template name="reviewForm">
-  <div class="bg_warning">
+  <div>
     <label for="teamLink">Link to the Game:     </label>
       <a href="{{teamURL}}" id="teamLink" target="_blank">{{teamTitle}}</a>
       <br>{{teamMates}}
   </div>
   <hr>
-  <form class="bg-info">
-   <div class="form-group">
-     <label for="team">Pick a team to review</label>
-     <select id="team" class="form-control">
+  <!-- <form>-->
+    <div>
+        <label> Enter a team number and hit return:</label>
+        <input type="text" id="teamNum">
+        <button id="teamGo">Select this team</button>
+    </div>
+   <div>
+     <br>
+     <label for="team">or select a team from the list below</label>
+     <br>
+     <select id="team">
        {{#each team in teams}}
          {{> teamlist team=team numReviews=(numReviews team)}}
        {{/each}}
      </select>
    </div>
+   <hr>
+
 
 
 
@@ -110,7 +131,7 @@
    <div class="form-group">
      <button id="submitReview" class="form-control btn btn-lg btn-info">Submit</button>
    </div>
- </form>
+ <!-- </form> -->
 </template>
 
 <template name="yourReviews">
