@@ -29,4 +29,5 @@ standard-minifier-js
 accounts-google
 underscore
 reactive-dict
+service-configuration
 less
