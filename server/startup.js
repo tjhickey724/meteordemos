@@ -150,7 +150,12 @@ teams =
 		url:"https://sites.google.com/a/brandeis.edu/los-juegos-buenos/home/rc1"
 	},
 
-  { num:23, title:'none', teamname:'none', reviewers:[], url:""},
+  { num:23,
+    title:'testing',
+    teamname:'TimsTests',
+    reviewers:[],
+    url:""
+  },
 
   { num:24,
 		title:'Spike Evasion',
@@ -168,7 +173,7 @@ teams =
 
   { num:26,
 		title:'Animatrix',
-		teamname:'Animatrix Productions', 
+		teamname:'Animatrix Productions',
 		reviewers:[],
 		url:"https://sites.google.com/a/brandeis.edu/animatrix/home"},
 
@@ -344,6 +349,7 @@ var members =
 {team:14, name:"Zhuang, Austin",	email:"austinzxp@brandeis.edu"},
 {team:5, name:"Zou, Weitao",	email:"zouwt@brandeis.edu"},
 {team:7, name:"Kaiwen Wei",     email:"kevinawei@brandeis.edu"},
+{team:23, name:"Tim Hickey", email:"tjhickey@brandeis.edu"},
 ];
 
 Meteor.methods({
@@ -357,11 +363,18 @@ Meteor.methods({
 		})
 	},
 
+  "myReviews":function(team){
+    return Teams.find({num:team});
+  },
+
 })
 
 Meteor.publish("teams",function(){return Teams.find();})
 Meteor.publish("members",function(){return Members.find();})
-Meteor.publish("reviews",function(){return Reviews.find({reviewer:this.userId});})
+Meteor.publish("reviews",function(){ return Reviews.find();})
+//  return Reviews.find({reviewer:this.userId});})
+
+
 
 Meteor.startup(function(){
   if (Teams.find().count()==0){
