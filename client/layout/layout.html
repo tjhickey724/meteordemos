@@ -22,16 +22,14 @@
 		      	<ul class="nav navbar-nav">
 							<li><a href="{{pathFor 'about'}}">About</a></li>
 							{{#if currentUser}}
-							<li><a href="{{pathFor 'bills'}}">Bills </a></li>
-
-							<li><a href="{{pathFor 'comments'}}">Comments </a></li>
-
 							<li><a href="{{pathFor 'profile'}}">Profile </a></li>
-
+							<li><a href="{{pathFor 'bills'}}">Bills </a></li>									
 
 							<li><a href="{{pathFor 'ReportCard'}}">Report Card</a></li>
 							{{/if}}
 							<li><a href="{{pathFor 'contact'}}">Contact us</a></li>
+							<li><a href="{{pathFor 'comments'}}">Comments </a></li>
+
 						</ul>
 			    <ul class="nav navbar-nav navbar-right">
 			            {{> loginButtons}} <!-- here -->
