@@ -178,6 +178,11 @@
     <td> {{team.teamname}}
     </td>
     <td>
+      <a href="{{team.img}}">
+        <img src="{{team.img}}" width="100%" alt="screenshot">
+      </a>
+    </td>
+    <td>
       <ul>
         {{#each m in members}}
           <li>{{m.name}}</li>
