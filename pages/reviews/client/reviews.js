@@ -34,10 +34,7 @@ Template.reviewForm.helpers({
   teamMates: function(){return Session.get("teamMates");},
 });
 
-Template.yourReviews.helpers({
-  reviews: function(){
-    return Reviews.find({reviewer:Meteor.userId()})},
-})
+
 
 Template.reviewForm.events({
   "change #team": function(event){
@@ -63,6 +60,7 @@ Template.reviewForm.events({
 
   "click #submitReview": function(event){
     event.preventDefault();
+    var eventName = $("#eventName").val()
     const team=parseInt($("#team").val());
     console.log("you selected team "+team);
     const like=$("#likeAboutGame").val();
@@ -75,11 +73,11 @@ Template.reviewForm.events({
     const theTeam = Teams.findOne({num:team});
     Teams.update(theTeam._id,{$push:{reviewers:reviewer}})
     const review=
-      {team,like,improve,rating,reviewer,version:"rc1"};
+      {eventName,team,like,improve,rating,reviewer,version:"rc1"};
     Reviews.insert(review);
     $("#likeAboutGame").val("");
     $("#improveGame").val("");
-    
+
   },
 
   "click #teamGo": function (event){
@@ -133,18 +131,4 @@ Template.reviewEntry.events({
 
 Template.teamlist.helpers({
 
-})
-
-Template.showTeams.helpers({
-  teams:function(){
-    return Teams.find({},{sort:{num:1}});
-  },
-
-  numReviews: function(team ){
-    return team.reviewers.length;
-  },
-
-  members: function(team){
-    return Members.find({team:team.num});
-  },
 })

@@ -10,38 +10,6 @@
 </template>
 
 
-<template name="reviewEntry">
-<tr><td>
-{{review.team}} <a href="{{review.url}}">{{title review.team}}</a>
-</td><td>
-{{review.rating}}
-</td><td>
-{{review.like}}
-</td><td>
-{{review.improve}}
-</td><td>
-  {{review.reviewer}}
-  <span class="glyphicon glyphicon-remove deleteReview" aria-hidden="true"></span>
-</td></tr>
-</template>
-
-
-<template name="teamlist">
-  <option value="{{team.num}}">Team:{{team.num}},
-    <a href="{{team.url}}">{{team.title}}</a> with {{numReviews}} reviews
-  </option>
-</template>
-
-
-<template name="teamlist2">
-  <div class="radio">
-    <label>
-      <input type="radio" name="team" class="teamRadio" value="{{team.num}}">
-      Team:{{team.num}},
-      <a href="{{team.url}}">{{team.title}}</a> with {{numReviews}} reviews
-    </label>
-  </div>
-</template>
 
 <template name="reviewForm">
   <div>
@@ -50,14 +18,15 @@
       <br>{{teamMates}}
   </div>
   <hr>
-  <!-- <form>-->
-  <!--
-    <div>
-        <label> Enter a team number and hit return:</label>
-        <input type="text" id="teamNum">
-        <button id="teamGo">Select this team</button>
-    </div>
-  -->
+  <div>
+    <br>
+    <label for="eventName">What are you reviewing?</label>
+    <br>
+    <select id="eventName">
+      <option value="cs164aFall16FP">Final Game</option>
+      <option value="cs164aFall16RC1" disabled>RC1</option>
+    </select>
+  </div>
    <div>
      <br>
      <label for="team">Select a team from the list below</label>
@@ -69,10 +38,6 @@
      </select>
    </div>
    <hr>
-
-
-
-
    <div class="form-group">
      <label for="rating">
        How would you rate the game on a scale of 0=poor to 10=fantastic?
@@ -92,33 +57,6 @@
      </select>
    </div>
 
-<!--
-   <div class="form-group">
-     <label class="radio-inline">
-       minimal
-     </label>
-     <label class="radio-inline">
-        <input type="radio" name="rating2" class="rating" id="inlineRadio1" value="1"> 1
-     </label>
-     <label class="radio-inline">
-       <input type="radio" name="rating2" class="rating" id="inlineRadio2" value="2"> 2
-     </label>
-     <label class="radio-inline">
-       <input type="radio" name="rating2" class="rating" id="inlineRadio3" value="3"> 3
-     </label>
-     <label class="radio-inline">
-       <input type="radio" name="rating2" class="rating" id="inlineRadio3" value="4"> 4
-     </label>
-     <label class="radio-inline">
-       <input type="radio" name="rating2" class="rating" id="inlineRadio3" value="5"> 5
-     </label>
-     <label class="radio-inline">
-       fantastic
-     </label>
-
-   </div>
- -->
-
    <div class="form-group">
      <label for="likeAboutGame">What do you like about this game?</label>
      <textarea id="likeAboutGame" class="form-control"></textarea>
@@ -133,62 +71,40 @@
    <div class="form-group">
      <button id="submitReview" class="form-control btn btn-lg btn-info">Submit</button>
    </div>
- <!-- </form> -->
 </template>
 
-<template name="yourReviews">
-  <h1>Your Reviews</h1>
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr><td>Team Number</td><td>Rating</td><td>Likes</td>
-          <td>Suggestions</td><td>delete?</td></tr>
-    </thead>
-    <tbody>
-      {{#each review in reviews}}
-        {{> reviewEntry review=review}}
-      {{/each}}
-    </tbody>
-  </table>
+
+
+<template name="reviewEntry">
+<tr><td>
+{{review.team}} <a href="{{review.url}}">{{title review.team}}</a>
+</td><td>
+{{review.rating}}
+</td><td>
+{{review.like}}
+</td><td>
+{{review.improve}}
+</td><td>
+  {{review.reviewer}}
+  <span class="glyphicon glyphicon-remove deleteReview" aria-hidden="true"></span>
+</td></tr>
 </template>
 
-<template name="showTeams">
-  <h1>CS164a-fall16 Release Candidate 1 Games</h1>
-  <table class="table table-bordered table-striped">
-   <thead>
-     <tr>
-       <th>Team Num</th><th>Title and Link</th>
-       <th>Production Company</th>
-       <th>Screen Shot</th>
-       <th>Team Members</th>
-    </tr>
-   </thead>
-   <tbody>
-    {{#each team in teams}}
-    {{> showTeam team=team members= (members team)}}
-    {{/each}}
-   </tbody>
-  </table>
+
+
+<template name="teamlist">
+  <option value="{{team.num}}">Team:{{team.num}},
+    <a href="{{team.url}}">{{team.title}}</a> with {{numReviews}} reviews
+  </option>
 </template>
 
-<template name="showTeam">
-  <tr>
-    <td> Team {{team.num}}</td>
-    <td>
-      <a href="{{team.url}}">{{team.title}}</a>
-    </td>
-    <td> {{team.teamname}}
-    </td>
-    <td>
-      <a href="{{team.img}}">
-        <img src="{{team.img}}" width="100%" alt="screenshot">
-      </a>
-    </td>
-    <td>
-      <ul>
-        {{#each m in members}}
-          <li>{{m.name}}</li>
-        {{/each}}
-      </ul>
-    </td>
-  </tr>
+
+<template name="teamlist2">
+  <div class="radio">
+    <label>
+      <input type="radio" name="team" class="teamRadio" value="{{team.num}}">
+      Team:{{team.num}},
+      <a href="{{team.url}}">{{team.title}}</a> with {{numReviews}} reviews
+    </label>
+  </div>
 </template>

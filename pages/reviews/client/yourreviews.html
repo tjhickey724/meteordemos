@@ -1,0 +1,14 @@
+<template name="yourReviews">
+  <h1>Your Reviews</h1>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr><td>Team Number</td><td>Rating</td><td>Likes</td>
+          <td>Suggestions</td><td>delete?</td></tr>
+    </thead>
+    <tbody>
+      {{#each review in reviews}}
+        {{> reviewEntry review=review}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>
