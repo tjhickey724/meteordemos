@@ -71,9 +71,10 @@ Template.reviewForm.events({
     console.log("rating = "+rating);
     const reviewer=Meteor.userId();
     const theTeam = Teams.findOne({num:team});
+    const createdAt = new Date();
     Teams.update(theTeam._id,{$push:{reviewers:reviewer}})
     const review=
-      {eventName,team,like,improve,rating,reviewer,version:"rc1"};
+      {eventName,team,like,improve,rating,reviewer,createdAt,version:"fp"};
     Reviews.insert(review);
     $("#likeAboutGame").val("");
     $("#improveGame").val("");

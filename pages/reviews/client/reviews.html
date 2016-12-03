@@ -1,7 +1,9 @@
 <template name="reviews">
-  <h1>Team Project Reviews: RC1</h1>
+  <h1>Team Project Reviews: FP</h1>
 {{#if currentUser}}
   {{> reviewForm}}
+  <hr>
+  {{> yourReviews}}
 
   {{else}}
     You must be logged in to review games.
@@ -23,8 +25,8 @@
     <label for="eventName">What are you reviewing?</label>
     <br>
     <select id="eventName">
-      <option value="cs164aFall16FP">Final Game</option>
-      <option value="cs164aFall16RC1" disabled>RC1</option>
+      <option value="fp">Final Game</option>
+      <option value="rc1" disabled>RC1</option>
     </select>
   </div>
    <div>
@@ -74,21 +76,6 @@
 </template>
 
 
-
-<template name="reviewEntry">
-<tr><td>
-{{review.team}} <a href="{{review.url}}">{{title review.team}}</a>
-</td><td>
-{{review.rating}}
-</td><td>
-{{review.like}}
-</td><td>
-{{review.improve}}
-</td><td>
-  {{review.reviewer}}
-  <span class="glyphicon glyphicon-remove deleteReview" aria-hidden="true"></span>
-</td></tr>
-</template>
 
 
 

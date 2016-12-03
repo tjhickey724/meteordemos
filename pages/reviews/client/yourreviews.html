@@ -1,14 +1,36 @@
+
 <template name="yourReviews">
-  <h1>Your Reviews</h1>
+  <h1>Your Reviews!</h1>
   <table class="table table-bordered table-striped">
     <thead>
       <tr><td>Team Number</td><td>Rating</td><td>Likes</td>
-          <td>Suggestions</td><td>delete?</td></tr>
+          <td>Suggestions</td>
+          <td>delete?</td></tr>
     </thead>
     <tbody>
-      {{#each review in reviews}}
+      {{#each review in reviews 'fp'}}
+        {{> reviewEntry review=review}}
+      {{/each}}
+      {{#each review in reviews 'rc1'}}
         {{> reviewEntry review=review}}
       {{/each}}
     </tbody>
   </table>
+</template>
+
+
+<template name="reviewEntry">
+<tr><td>
+{{review.team}} <a href="{{review.url}}">{{title review.team}}</a>
+({{review.version}})
+</td><td>
+{{review.rating}}
+</td><td>
+{{review.like}}
+</td><td>
+{{review.improve}}
+</td><td>
+  {{review.createdAt}}
+  <span class="glyphicon glyphicon-remove deleteReview" aria-hidden="true"></span>
+</td></tr>
 </template>
