@@ -43,7 +43,7 @@ Template.mygame.helpers({
     //console.dir(myProfile);
     var myReviews =
        Reviews.find(
-         {team:team},
+         {team:-1}, //{team:team},
          {sort:{version:1,
                 reviewer:1,
                 team:1,

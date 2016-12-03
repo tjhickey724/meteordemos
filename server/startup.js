@@ -439,22 +439,22 @@ function emailOfUser(user){
 eu = emailOfUser;
 
 Meteor.publish("myreviews",function(){
-  console.log("publishing my reviews for "+this.userId);
+  //console.log("publishing my reviews for "+this.userId);
   var user = Meteor.users.findOne({_id:this.userId});
   var email = emailOfUser(user);
-  console.log("email= "+email);
+  //console.log("email= "+email);
   if (email=="tjhickey724@gmail.com"){
     return Reviews.find();
   }
   var member= Members.findOne({email:email});
   if (member){
-    console.dir(member);
+    //console.dir(member);
     teamNum = member.team;
   } else {
     teamNum = 0;
   }
-  console.dir(user);
-  console.log("Team number for "+email+" is "+teamNum);
+  //console.dir(user);
+  //console.log("Team number for "+email+" is "+teamNum);
   return Reviews.find(
     {$or:[{team:teamNum},{reviewer:this.userId}]},
     {fields:{email:0}}
