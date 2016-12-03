@@ -16,7 +16,7 @@ Session.set("teamNum",0);
 
 Meteor.subscribe("teams");
 Meteor.subscribe("members");
-Meteor.subscribe("reviews");
+Meteor.subscribe("myreviews");
 
 
 Template.reviewForm.helpers({
@@ -39,7 +39,7 @@ Template.reviewForm.helpers({
 Template.reviewForm.events({
   "change #team": function(event){
     event.preventDefault();
-    console.dir(this);
+    //console.dir(this);
     const teamNum=parseInt($("#team").val());
 
     const team = Teams.findOne({num:teamNum});
@@ -47,14 +47,14 @@ Template.reviewForm.events({
     Session.set("teamTitle",team.title);
     Session.set("teamNum",team.num);
     const teamMates = Members.find({team:teamNum}).fetch();
-    console.dir(teamMates);
+    //console.dir(teamMates);
     let teamMembers="by ";
     teamMates.forEach(function(s){
-      console.dir(s.name+" -- "+teamMembers);
+      //console.dir(s.name+" -- "+teamMembers);
       teamMembers = teamMembers.concat(s.name+" and ")
     });
     teamMembers = teamMembers.concat(" "+team.teamname);
-    console.dir(teamMembers);
+    //console.dir(teamMembers);
     Session.set("teamMates",teamMembers);
   },
 
@@ -62,19 +62,20 @@ Template.reviewForm.events({
     event.preventDefault();
     var eventName = $("#eventName").val()
     const team=parseInt($("#team").val());
-    console.log("you selected team "+team);
+    //console.log("you selected team "+team);
     const like=$("#likeAboutGame").val();
-    console.log(like);
+    //console.log(like);
     const improve = $("#improveGame").val();
-    console.log(improve);
+    //console.log(improve);
     const rating = $("#rating").val();
-    console.log("rating = "+rating);
+    //console.log("rating = "+rating);
     const reviewer=Meteor.userId();
     const theTeam = Teams.findOne({num:team});
+    const email = userEmail();
     const createdAt = new Date();
     Teams.update(theTeam._id,{$push:{reviewers:reviewer}})
     const review=
-      {eventName,team,like,improve,rating,reviewer,createdAt,version:"fp"};
+      {eventName,team,like,improve,rating,reviewer,email,createdAt,version:"fp"};
     Reviews.insert(review);
     $("#likeAboutGame").val("");
     $("#improveGame").val("");

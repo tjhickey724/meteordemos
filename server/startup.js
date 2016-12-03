@@ -388,13 +388,13 @@ var members =
 Meteor.methods({
 	"updateTeams":function(){
 		teams.forEach(function(s){
-			console.log("updating "+s.title);
+			//console.log("updating "+s.title);
 			Teams.update({num:s.num},{$set:{title:s.title,teamname:s.teamname,url:s.url,img:s.img}});
 		});
 		members.forEach(function(s){
-      console.log(s.name);
+      //console.log(s.name);
 			Members.update({name:s.name},{$set:{email:s.email.trim()}});
-      console.dir(Members.findOne({email:s.email}));
+      //console.dir(Members.findOne({email:s.email}));
 		})
 	},
 
@@ -427,11 +427,44 @@ Meteor.publish("members",function(){return Members.find();})
 Meteor.publish("reviews",function(){ return Reviews.find();})
 //  return Reviews.find({reviewer:this.userId});})
 
+function emailOfUser(user){
+  if (user && user.services && user.services.google){
+    return user.services.google.email;
+  } else if (user && user.emails) {
+    return user.emails[0].address;
+  } else {
+    return "no-email";
+  }
+}
+eu = emailOfUser;
+
+Meteor.publish("myreviews",function(){
+  //console.log("publishing my reviews for "+this.userId);
+  var user = Meteor.users.findOne({_id:this.userId});
+  var email = emailOfUser(user);
+  if (email=="tjhickey724@gmail.com"){
+    return Reviews.find();
+  }
+  var member= Members.find({email:email}).fetch();
+  if (member){
+    //console.dir(member);
+    teamNum = member[0].team;
+  } else {
+    teamNum = 0;
+  }
+  //console.dir(user);
+  //console.log("Team number for "+email+" is "+teamNum);
+  return Reviews.find(
+    {$or:[{team:teamNum},{reviewer:this.userId}]},
+    {fields:{email:0}}
+  );
+})
+
 
 
 Meteor.startup(function(){
   if (Teams.find().count()==0){
-		console.log("loading in teamdata");
+		//console.log("loading in teamdata");
 		teams.forEach(function(s){Teams.insert(s)});
 		members.forEach(function(s){Members.insert(s)});
 	}
