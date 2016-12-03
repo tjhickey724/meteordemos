@@ -24,7 +24,7 @@
 <template name="reviewRow">
   <tr>
     <td>{{r.email}}</td>
-    <td>{{r.team}} ({{r.version}})</td>
+    <td>{{gameTitle r.team}}{{r.team}} ({{r.version}})</td>
     <td>{{r.rating}}</td>
     <td>{{r.like}}</td>
     <td>{{r.improve}}</td>

@@ -80,5 +80,14 @@ Template.reviewRow.helpers({
   userName: function(r){
     var u = Users.findOne({_id:r});
     return u
+  },
+  gameTitle: function(num){
+    var g = Teams.findOne({num:num});
+    if (g){
+      return g.title
+    }
+    else {
+      return "unknown";
+    }
   }
 })
