@@ -9,7 +9,7 @@ Template.userList.helpers({
   },
   'connect': function() {
     //console.log("finding connections!");
-    const z = Connections.find();
+    var z = Connections.find();
     zz = Meteor.call("getInfo",[]);
     //console.log("myIP= "+zz);
 
@@ -26,7 +26,7 @@ Template.userList.events({
 
   'click .js-remove-all': function(event){
     // only let tjhickey@brandeis.edu remove everyone
-    const me = Meteor.user();
+    var me = Meteor.user();
     if (me.services.google &&
         me.services.google.email=="tjhickey@brandeis.edu") {
       Meteor.call("removeAll");

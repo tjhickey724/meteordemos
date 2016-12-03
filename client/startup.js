@@ -8,8 +8,8 @@ Meteor.startup(function(){
 // it returns the email address when givent
 // the userId from Meteor.userId()
 Template.registerHelper('userEmail',
-(id)=>{
-  const user = Meteor.users.findOne(id);
+function(id){
+  var user = Meteor.users.findOne(id);
   if (!user){
     return("no-email")
   }else if(user.emails)

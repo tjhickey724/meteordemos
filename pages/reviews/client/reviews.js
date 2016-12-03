@@ -40,15 +40,15 @@ Template.reviewForm.events({
   "change #team": function(event){
     event.preventDefault();
     //console.dir(this);
-    const teamNum=parseInt($("#team").val());
+    var teamNum=parseInt($("#team").val());
 
-    const team = Teams.findOne({num:teamNum});
+    var team = Teams.findOne({num:teamNum});
     Session.set("teamURL",team.url);
     Session.set("teamTitle",team.title);
     Session.set("teamNum",team.num);
-    const teamMates = Members.find({team:teamNum}).fetch();
+    var teamMates = Members.find({team:teamNum}).fetch();
     //console.dir(teamMates);
-    let teamMembers="by ";
+    var teamMembers="by ";
     teamMates.forEach(function(s){
       //console.dir(s.name+" -- "+teamMembers);
       teamMembers = teamMembers.concat(s.name+" and ")
@@ -59,23 +59,32 @@ Template.reviewForm.events({
   },
 
   "click #submitReview": function(event){
+    //console.log("inserting!")
     event.preventDefault();
     var eventName = $("#eventName").val()
-    const team=parseInt($("#team").val());
+    var team=parseInt($("#team").val());
     //console.log("you selected team "+team);
-    const like=$("#likeAboutGame").val();
+    var like=$("#likeAboutGame").val();
     //console.log(like);
-    const improve = $("#improveGame").val();
+    var improve = $("#improveGame").val();
     //console.log(improve);
-    const rating = $("#rating").val();
+    var rating = $("#rating").val();
     //console.log("rating = "+rating);
-    const reviewer=Meteor.userId();
-    const theTeam = Teams.findOne({num:team});
-    const email = userEmail();
-    const createdAt = new Date();
+    var reviewer=Meteor.userId();
+    var theTeam = Teams.findOne({num:team});
+    var email = userEmail();
+    var createdAt = new Date();
     Teams.update(theTeam._id,{$push:{reviewers:reviewer}})
-    const review=
-      {eventName,team,like,improve,rating,reviewer,email,createdAt,version:"fp"};
+    var review=
+       {eventName:eventName,
+        team:team,
+        like:like,
+        improve:improve,
+        rating:rating,
+        reviewer:reviewer,
+        email:email,
+        createdAt:createdAt,
+        version:"fp"};
     Reviews.insert(review);
     $("#likeAboutGame").val("");
     $("#improveGame").val("");
@@ -84,9 +93,9 @@ Template.reviewForm.events({
 
   "click #teamGo": function (event){
     event.preventDefault();
-    const teamNum = parseInt($("#teamNum").val());
+    var teamNum = parseInt($("#teamNum").val());
     //console.log(teamNum);
-    const team = Teams.findOne({num:teamNum});
+    var team = Teams.findOne({num:teamNum});
     //console.dir(team);
     //console.log("calling updateTeamInfo");
     updateTeamInfo(team);
@@ -100,9 +109,9 @@ function updateTeamInfo(team){
   Session.set("teamURL",team.url);
   Session.set("teamTitle",team.title);
   Session.set("teamNum",team.num);
-  const teamMates = Members.find({team:team.num}).fetch();
+  var teamMates = Members.find({team:team.num}).fetch();
   //console.dir(teamMates);
-  let teamMembers="by ";
+  var teamMembers="by ";
   teamMates.forEach(function(s){
     //console.dir(s.name+" -- "+teamMembers);
     teamMembers = teamMembers.concat(s.name+" and ")
@@ -115,7 +124,7 @@ function updateTeamInfo(team){
 Template.reviewEntry.helpers({
   title: function(n){
     //console.log(n-0);
-    const zz = Teams.findOne({num:n-0});
+    var zz = Teams.findOne({num:n-0});
     //console.dir(zz);
     return zz.title}
 });
