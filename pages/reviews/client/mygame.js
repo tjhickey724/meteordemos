@@ -41,12 +41,20 @@ Template.mygame.helpers({
     if (myProfile) {team = myProfile.team;}
     //console.log(myemail);
     //console.dir(myProfile);
-    var myReviews = Reviews.find({team:team});
+    var myReviews =
+       Reviews.find(
+         {team:team},
+         {sort:{version:1,
+                reviewer:1,
+                team:1,
+                rating:-1}}
+       );
     //console.dir(myReviews);
     if (myemail == "tjhickey724@gmail.com"){
       myReviews =
           Reviews.find({},
-                       {sort:{reviewer:1,
+                       {sort:{version:1,
+                              reviewer:1,
                               team:1,
                               rating:-1}});
     }
