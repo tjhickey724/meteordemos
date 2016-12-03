@@ -6,8 +6,18 @@
     </thead>
     <tbody>
       {{#each r in myreviews}}
-        <tr><td>{{r.team}} ({{r.version}})</td><td>{{r.rating}}</td><td>{{r.like}}</td><td>{{r.improve}}</td></tr>
+        {{> reviewRow r=r}}
       {{/each}}
     </tbody>
   </table>
+</template>
+
+<template name="reviewRow">
+  <tr>
+    <td>Reviewer: {{r.reviewer}}</td>
+    <td>{{r.team}} ({{r.version}})</td>
+    <td>{{r.rating}}</td>
+    <td>{{r.like}}</td>
+    <td>{{r.improve}}</td>
+  </tr>
 </template>

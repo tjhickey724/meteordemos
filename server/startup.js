@@ -402,6 +402,24 @@ Meteor.methods({
     return Teams.find({num:team});
   },
 
+  "updateUsers":function(){
+      var users = Meteor.users.find().fetch();
+      users.forEach(function(user){
+        var uemail="";
+        if (user.services && user.services.google){
+          uemail= user.services.google.email;
+        } else if (user.emails) {
+          uemail= user.emails[0].address;
+        } else {
+          uemail= "no-email";
+        }
+        UserEmails.update(
+          {uid:user._id},
+          {email:uemail},
+          {upsert:true}
+        );
+      })
+  },
 })
 
 Meteor.publish("teams",function(){return Teams.find();})
