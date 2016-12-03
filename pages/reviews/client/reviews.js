@@ -84,10 +84,10 @@ Template.reviewForm.events({
   "click #teamGo": function (event){
     event.preventDefault();
     const teamNum = parseInt($("#teamNum").val());
-    console.log(teamNum);
+    //console.log(teamNum);
     const team = Teams.findOne({num:teamNum});
-    console.dir(team);
-    console.log("calling updateTeamInfo");
+    //console.dir(team);
+    //console.log("calling updateTeamInfo");
     updateTeamInfo(team);
   }
 
@@ -95,33 +95,33 @@ Template.reviewForm.events({
 });
 
 function updateTeamInfo(team){
-  console.dir(team);
+  //console.dir(team);
   Session.set("teamURL",team.url);
   Session.set("teamTitle",team.title);
   Session.set("teamNum",team.num);
   const teamMates = Members.find({team:team.num}).fetch();
-  console.dir(teamMates);
+  //console.dir(teamMates);
   let teamMembers="by ";
   teamMates.forEach(function(s){
-    console.dir(s.name+" -- "+teamMembers);
+    //console.dir(s.name+" -- "+teamMembers);
     teamMembers = teamMembers.concat(s.name+" and ")
   });
   teamMembers = teamMembers.concat(" "+team.teamname);
-  console.dir(teamMembers);
+  //console.dir(teamMembers);
   Session.set("teamMates",teamMembers);
 }
 
 Template.reviewEntry.helpers({
   title: function(n){
-    console.log(n-0);
+    //console.log(n-0);
     const zz = Teams.findOne({num:n-0});
-    console.dir(zz);
+    //console.dir(zz);
     return zz.title}
 });
 
 Template.reviewEntry.events({
   "click .deleteReview": function(event){
-    console.dir(this);
+    //console.dir(this);
     team = Teams.findOne({num:this.review.team});
     Teams.update(team._id,
       {$set:

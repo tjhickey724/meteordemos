@@ -2,7 +2,7 @@
   <h1>Reviews of my game</h1>
   <table class="table table-bordered table-striped">
     <thead>
-      <tr><th>Team</th><th>Rating</th><th>What I like about the game</th><th>How to improve the game</th></tr>
+      <tr><th>Reviewer</th><th>Team</th><th>Rating</th><th>What I like about the game</th><th>How to improve the game</th></tr>
     </thead>
     <tbody>
       {{#each r in myreviews}}
@@ -14,7 +14,7 @@
 
 <template name="reviewRow">
   <tr>
-    <td>Reviewer: {{r.reviewer}}</td>
+    <td>{{r.email}}</td>
     <td>{{r.team}} ({{r.version}})</td>
     <td>{{r.rating}}</td>
     <td>{{r.like}}</td>

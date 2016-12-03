@@ -3,3 +3,5 @@
 movies/*
 *.txt
 node_modules
+userInfo.js
+leinerusers.js

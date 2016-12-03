@@ -8,19 +8,19 @@ Template.userList.helpers({
     return Connections.find();
   },
   'connect': function() {
-    console.log("finding connections!");
+    //console.log("finding connections!");
     const z = Connections.find();
     zz = Meteor.call("getInfo",[]);
-    console.log("myIP= "+zz);
+    //console.log("myIP= "+zz);
 
-    console.log("**** connections = "+JSON.stringify(z.fetch()));
+    //console.log("**** connections = "+JSON.stringify(z.fetch()));
     return z;
   }
 });
 
 Template.userList.events({
   'click .add-me-js': function(){
-    console.log("clicked!");
+    //console.log("clicked!");
     Meteor.call("getInfo");
   },
 
@@ -31,7 +31,7 @@ Template.userList.events({
         me.services.google.email=="tjhickey@brandeis.edu") {
       Meteor.call("removeAll");
     } else {
-      console.log("you are not authorized to remove all user IPs.")
+      //console.log("you are not authorized to remove all user IPs.")
     }
   },
 

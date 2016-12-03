@@ -1,7 +1,5 @@
-function userEmail(){
-  var user = Meteor.user();
-  console.dir(user);
-  if (user.services && user.services.google){
+function emailOfUser(user){
+  if (user && user.services && user.services.google){
     return user.services.google.email;
   } else if (user.emails) {
     return user.emails[0].address;
@@ -10,9 +8,22 @@ function userEmail(){
   }
 }
 
+function userEmail(){
+  var user = Meteor.user();
+  //console.dir(user);
+  if (user && user.services && user.services.google){
+    return user.services.google.email;
+  } else if (user && user.emails) {
+    return user.emails[0].address;
+  } else {
+    return "no-email";
+  }
+}
+
+
 function userEmailById(id){
-  var user = Meteor.users.findOne(_id:id);
-  console.dir(user);
+    var user = Meteor.users.findOne({_id:id});
+  //console.dir(user);
   if (user.services && user.services.google){
     return user.services.google.email;
   } else if (user.emails) {
@@ -28,18 +39,34 @@ Template.mygame.helpers({
     var myProfile = Members.findOne({email:myemail});
     var team = 0;
     if (myProfile) {team = myProfile.team;}
-    console.log(myemail);
-    console.dir(myProfile);
+    //console.log(myemail);
+    //console.dir(myProfile);
     var myReviews = Reviews.find({team:team});
-    console.dir(myReviews.fetch());
+    //console.dir(myReviews);
     if (myemail == "tjhickey724@gmail.com"){
-      return Reviews.find({},{sort:{reviewer:1,team:1,rating:-1}});
-    } else {
-      return myReviews;
+      myReviews =
+          Reviews.find({},
+                       {sort:{reviewer:1,
+                              team:1,
+                              rating:-1}});
     }
+    //myReviews = myReviews.fetch();
+    //myReviews.forEach(addEmail)
+    //console.dir(myReviews);
+    return myReviews;
+  },
 
-  }
 })
+
+function addEmail(r){
+       var uinfo =
+          _.find(leinerusers,
+                 function(u){return u._id ==r.reviewer});
+       if (uinfo)
+          r.email = uinfo.email;
+       else
+          r.email = "unknown";
+}
 
 Template.reviewRow.helpers({
   userName: function(r){
