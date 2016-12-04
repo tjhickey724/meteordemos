@@ -60,7 +60,7 @@ Meteor.methods({
         grades.q.q3mh = vals[p++];
         grades.q.q3mm = vals[p++];
         grades.q.q2mm = vals[p++];
-        grades.q.q1mm = vals[p++];
+        grades.q.q1.mm = vals[p++];
         grades.q.q1mmh = vals[p++];
         grades.q.q2mmh = vals[p++];
         grades.q.q3mmh = vals[p++];
@@ -75,6 +75,9 @@ Meteor.methods({
         grades.q.q2mh = vals[p++];
         grades.q.q3 = vals[p++];
         grades.q.q3h = vals[p++];
+				grades.q.q1f=0;
+				grades.q.q2f=0;
+				grades.q.q3f=0;
 
         // q1f,q2f,q3f,
         p++; p++; p++;
@@ -108,6 +111,7 @@ Meteor.methods({
 Meteor.publish("teams",function(){return Teams.find();})
 Meteor.publish("members",function(){return Members.find();})
 Meteor.publish("reviews",function(){ return Reviews.find();})
+Meteor.publish("grades",function(){ return Grades.find();})
 //  return Reviews.find({reviewer:this.userId});})
 
 function emailOfUser(user){
@@ -143,6 +147,22 @@ Meteor.publish("myreviews",function(){
     {fields:{email:0}}
   );
 })
+
+Meteor.publish("mygrades",function(){
+  //console.log("publishing my reviews for "+this.userId);
+  var user = Meteor.users.findOne({_id:this.userId});
+  var email = emailOfUser(user);
+  //console.log("email= "+email);
+  if (email=="tjhickey724@gmail.com"){
+    return Grades.find();
+  }
+  //console.dir(user);
+  //console.log("Team number for "+email+" is "+teamNum);
+  return Grades.find(
+		{email:email}
+  );
+})
+
 
 
 
