@@ -402,6 +402,13 @@ Meteor.methods({
     return Teams.find({num:team});
   },
 
+  "updateMembers": function(){
+    Members.remove({});
+    members.forEach(function(m){
+      Members.insert(m);
+    })
+  },
+
   "updateUsers":function(){
       var users = Meteor.users.find().fetch();
       users.forEach(function(user){
@@ -467,6 +474,7 @@ Meteor.startup(function(){
   if (Teams.find().count()==0){
 		//console.log("loading in teamdata");
 		teams.forEach(function(s){Teams.insert(s)});
+
 		members.forEach(function(s){Members.insert(s)});
 	}
 
