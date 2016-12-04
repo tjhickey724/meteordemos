@@ -24,6 +24,13 @@ Meteor.methods({
     })
   },
 
+	"updateParticipation": function(){
+		Participation.remove({});
+		participation.forEach(function(p){
+			Participation.insert(p);
+		})
+	},
+
   "updateGrades": function(){
     Grades.remove({});
     // open a file and read in the grades
@@ -162,6 +169,23 @@ Meteor.publish("mygrades",function(){
 		{email:email}
   );
 })
+
+Meteor.publish("myparticipation",function(){
+  //console.log("publishing my reviews for "+this.userId);
+  var user = Meteor.users.findOne({_id:this.userId});
+  var email = emailOfUser(user);
+  //console.log("email= "+email);
+  if (email=="tjhickey724@gmail.com"){
+		console.log("publishing all Participation");
+    return Participation.find();
+  }
+  //console.dir(user);
+  //console.log("Team number for "+email+" is "+teamNum);
+  return Participation.find(
+		{email:email}
+  );
+})
+
 
 
 
