@@ -59,7 +59,7 @@ Template.mygame.helpers({
                               rating:-1}});
     }
     myReviews = myReviews.fetch();
-    myReviews.forEach(addEmail)
+    //myReviews.forEach(addEmail)
     console.dir(myReviews);
     return myReviews;
   },
