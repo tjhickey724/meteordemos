@@ -5,8 +5,9 @@ Meteor.methods({
 	"updateTeams":function(){
 		teams.forEach(function(s){
 			//console.log("updating "+s.title);
-			Teams.update({num:s.num},{$set:{title:s.title,teamname:s.teamname,url:s.url,img:s.img}});
+			Teams.update({num:s.num},{$set:{title:s.title,teamname:s.teamname,url:s.url,OLDurl:s.OLDurl,img:s.img}});
 		});
+		return;
 		members.forEach(function(s){
       //console.log(s.name);
 			Members.update({name:s.name},{$set:{email:s.email.trim()}});
