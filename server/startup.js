@@ -1,6 +1,7 @@
 
 
 Meteor.methods({
+
 	"updateTeams":function(){
 		teams.forEach(function(s){
 			//console.log("updating "+s.title);
@@ -12,10 +13,6 @@ Meteor.methods({
       //console.dir(Members.findOne({email:s.email}));
 		})
 	},
-
-  "myReviews":function(team){
-    return Teams.find({num:team});
-  },
 
   "updateMembers": function(){
     Members.remove({});
@@ -117,8 +114,8 @@ Meteor.methods({
 
 Meteor.publish("teams",function(){return Teams.find();})
 Meteor.publish("members",function(){return Members.find();})
-Meteor.publish("reviews",function(){ return Reviews.find();})
-Meteor.publish("grades",function(){ return Grades.find();})
+//Meteor.publish("reviews",function(){ return Reviews.find();})
+//Meteor.publish("grades",function(){ return Grades.find();})
 //  return Reviews.find({reviewer:this.userId});})
 
 function emailOfUser(user){
@@ -150,7 +147,10 @@ Meteor.publish("myreviews",function(){
   //console.dir(user);
   //console.log("Team number for "+email+" is "+teamNum);
   return Reviews.find(
-    {$or:[{team:teamNum},{reviewer:this.userId}]},
+    {$or:[
+					{reviewer:this.userId}
+				// ,{team:teamNum}
+			    ]},
     {fields:{email:0}}
   );
 })

@@ -43,7 +43,7 @@ Template.mygame.helpers({
     //console.dir(myProfile);
     var myReviews =
        Reviews.find(
-         {team:-1}, //{team:team},
+         {team:team}, //{team:team},
          {sort:{version:1,
                 reviewer:1,
                 team:1,
@@ -58,9 +58,9 @@ Template.mygame.helpers({
                               team:1,
                               rating:-1}});
     }
-    //myReviews = myReviews.fetch();
-    //myReviews.forEach(addEmail)
-    //console.dir(myReviews);
+    myReviews = myReviews.fetch();
+    myReviews.forEach(addEmail)
+    console.dir(myReviews);
     return myReviews;
   },
 
