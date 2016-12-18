@@ -484,7 +484,7 @@ Meteor.methods({
   "updateGrades": function(){
     Grades.remove({});
     // open a file and read in the grades
-      var csv = Assets.getText("grades/cs164agradesFINAL.csv");
+      var csv = Assets.getText("grades/cs164agradesFINALFINAL.csv");
       var lines = csv.split('\n');
       console.log("lines length is "+lines.length);
       lines.forEach(function(line){
