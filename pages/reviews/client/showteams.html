@@ -1,5 +1,5 @@
 <template name="showTeams">
-  <h1>CS164a-fall16 Release Candidate 1 Games</h1>
+  <h1>CS164a-fall16 Games</h1>
   <table class="table table-bordered table-striped">
    <thead>
      <tr>
@@ -24,12 +24,15 @@
       <a href="{{team.url}}">{{team.title}}</a><br>
       <hr>
       <a href="{{team.OLDurl}}">RC1 version</a>
+      <hr>
+      <h1>{{grade}}</h1>
+      {{numReviews}}
     </td>
     <td> {{team.teamname}}
     </td>
     <td>
       <a href="{{team.img}}">
-        <img src="{{team.img}}" width="100%" alt="screenshot">
+        <img src="{{team.img}}" width="200" alt="screenshot">
       </a>
     </td>
     <td>

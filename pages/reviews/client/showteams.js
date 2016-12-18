@@ -10,4 +10,28 @@ Template.showTeams.helpers({
   members: function(team){
     return Members.find({team:team.num});
   },
+
+
+
+})
+
+
+Template.showTeam.helpers({
+  grade: function(){
+    if (this.team.score){
+      return Math.ceil(this.team.score*10);
+    }
+    else {
+      return "";
+    }
+  },
+
+  numReviews: function(){
+    if (this.team.score){
+      return this.team.reviewers.length + " reviews";
+    }
+    else {
+      return "";
+    }
+  }
 })

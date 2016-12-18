@@ -1,3 +1,5 @@
+Session.set("reviewOrder","user");
+
 function emailOfUser(user){
   if (user && user.services && user.services.google){
     return user.services.google.email;
@@ -51,12 +53,22 @@ Template.mygame.helpers({
        );
     //console.dir(myReviews);
     if (myemail == "tjhickey724@gmail.com"){
+     if (Session.get("reviewOrder")=="reviewer") {
       myReviews =
           Reviews.find({},
-                       {sort:{version:1,
+                       {sort:{
                               reviewer:1,
-                              team:1,
-                              rating:-1}});
+                              version:1,
+                              rating:-1,
+                              team:1,}});
+     } else {
+       myReviews =
+           Reviews.find({},
+                        {sort:{version:1,
+                               team:1,
+                               rating:-1,
+                               reviewer:1,}});
+     }
     }
     myReviews = myReviews.fetch();
     //myReviews.forEach(addEmail)
@@ -76,6 +88,16 @@ function addEmail(r){
           r.email = "unknown";
 }
 
+Template.mygame.events({
+  "click #byTeam": function(event){
+    Session.set("reviewOrder","team");
+  },
+
+  "click #byReviewer": function(event){
+    Session.set("reviewOrder","reviewer");
+  }
+})
+
 Template.reviewRow.helpers({
   userName: function(r){
     var u = Users.findOne({_id:r});
@@ -89,5 +111,13 @@ Template.reviewRow.helpers({
     else {
       return "unknown";
     }
-  }
+  },
+
+  gameScore: function(num){
+    var g = Teams.findOne({num:num});
+    if (g){
+      return Math.round(g.score*10)/10.0
+    }else
+    return -1;
+  },
 })

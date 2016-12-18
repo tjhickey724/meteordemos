@@ -1,17 +1,11 @@
 <template name="mygame">
   <h1>Reviews of my game</h1>
-  <strong>
-    Reviews of your game will be visible to you
-    after the Showcase is complete on Wednesday...
-    <br>
-    You won't be able to see who wrote which reviews though.
-    <br>
-    I can see who wrote which reviews, however.
-  </strong>
+  Sort <input type="radio" id="byReviewer" name="reviewOrder"> by reviewer<br>
+  Sort <input type="radio" id="byTeam" name="reviewOrder"> by team<br><br>
   <br><br><br>
   <table class="table table-bordered table-striped">
     <thead>
-      <tr><th>Reviewer</th><th>Team</th><th>Rating</th><th>What I like about the game</th><th>How to improve the game</th></tr>
+      <tr><th>Reviewer</th><th>Team</th><th>Rating</th><th>AvgRating</th><th>What I like about the game</th><th>How to improve the game</th></tr>
     </thead>
     <tbody>
       {{#each r in myreviews}}
@@ -26,6 +20,7 @@
     <td>{{r.email}}</td>
     <td>{{gameTitle r.team}}{{r.team}} ({{r.version}})</td>
     <td>{{r.rating}}</td>
+    <td>{{gameScore r.team}}</td>
     <td>{{r.like}}</td>
     <td>{{r.improve}}</td>
   </tr>
