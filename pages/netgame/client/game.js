@@ -26,7 +26,8 @@ function updateAvatar(event,instance){
   //console.log(JSON.stringify(avatar));
   //console.dir(event);
   if (!avatar){
-    alert("there seems to be a bug here!");
+    return;
+
   }
   switch (event.key) {
     case 'w': case 'ArrowUp':
