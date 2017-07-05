@@ -1,4 +1,12 @@
 Meteor.startup(function(){
+
+	if (Jewels.find().count()==0){
+		for(var i=0; i<5;i++){
+			x = 10*Math.floor(Math.random()*20);
+			y = 10*Math.floor(Math.random()*20);
+		  Jewels.insert({x,y});
+	  }
+	}
 	if (Pokedex.find().count()==0){
 		console.log("Importing Pokedex to db")
 
