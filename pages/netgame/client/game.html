@@ -10,16 +10,29 @@
   <button id="join">Join the Game</button>
   	</div>
   <hr>
-
+  <div class="row">
+   <div class="col-md-6">
 		<canvas id="drawSpace" class="js-canvas"
 		        width="600" height="600">
 			Your browser doesn't support the canvas. Get the latest verison of Chrome or FF or ...
 		</canvas>
-  <br>
+  </div>
+
+   <div class="col-md-1">
+   </div>
+
+   <div class="col-md-5">
   <h1>Leaderboard</h1>
-    <ul>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr><th>Pseudonym</th>  <th> Score </th></tr>
+      </thead>
+      <tbody>
       {{#each a in avatars}}
-       <li>{{a.name}}: {{a.score}}</li>
+       <tr><td>{{a.name}}</td><td> {{a.score}}</td></tr>
       {{/each}}
-    </ul>
+    </tbody>
+  </table>
+  </div>
+</div>
 </template>
