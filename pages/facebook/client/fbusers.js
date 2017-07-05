@@ -11,7 +11,7 @@ Template.fbperson.events({
     Friends.insert({friend:this.u.owner,owner:Meteor.userId()})
   },
   "click #js-defriend"(event,instance){
-    var z = Friends.findOne({owner:this.u.owner,friend:Meteor.userId()});
+    var z = Friends.findOne({friend:this.u.owner,owner:Meteor.userId()});
     console.log('removing'); console.dir(z);
     Friends.remove(z._id);
   },
