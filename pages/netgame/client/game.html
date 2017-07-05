@@ -1,17 +1,22 @@
 <template name="game">
     <div id='page'>
   <h1> Multiuser Networked Game!</h1>
-
-		<canvas id="drawSpace" class="js-canvas"
-		        width="600" height="300">
-			Your browser doesn't support the canvas. Get the latest verison of Chrome or FF or ...
-		</canvas>
-
+  Join the game by picking a color and a pseudonym.
+  Then use the arrow keys (or WSAD) to collect big red jewels.
+  <hr>
   Pick your color:
   <input type="color" id="avatarColor"><br>
-  Insert your Pseudonym: <input type="text" id="name"><br>
-  <button id="join">Join</button>
+  Pick Pseudonym: <input type="text" id="name"><br>
+  <button id="join">Join the Game</button>
   	</div>
+  <hr>
+
+		<canvas id="drawSpace" class="js-canvas"
+		        width="600" height="600">
+			Your browser doesn't support the canvas. Get the latest verison of Chrome or FF or ...
+		</canvas>
+  <br>
+  <h1>Leaderboard</h1>
     <ul>
       {{#each a in avatars}}
        <li>{{a.name}}: {{a.score}}</li>

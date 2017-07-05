@@ -1,36 +1,26 @@
 Template.game.helpers({
-  avatars(){return Avatars.find()}
+  avatars(){return Avatars.find({},{sort:{score:-1}})}
 })
 
 Template.game.onCreated(function(){
-  var avatar = Avatars.find({owner:Meteor.userId()});
-  if (!avatar){
-
-  }
-  var color =
-    '#'+Math.floor(Math.random()*16777215).toString(16);
-  this.avatarid = Avatars.insert({
-    x:100, y:100, color:color, owner:Meteor.userId()
-  });
   var instance = this;
   $(window).on('keydown', function(e){
-    console.log(e.key);
+    //console.log(e.key);
     updateAvatar(event,instance);
   });
-  console.log("onCreated: Avatarid="+this.avatarid);
 });
 
 Template.game.onRendered(function(){
   ctx = drawSpace.getContext('2d');
 
   gameLoop();
-  console.log('onRendered: started gameloop');
+  //console.log('onRendered: started gameloop');
 });
 
 function updateAvatar(event,instance){
-  console.log("keydown event handler 1");
-  console.dir(event);
-  console.dir(instance);
+  //console.log("keydown event handler 1");
+  //console.dir(event);
+  //console.dir(instance);
   avatar = Avatars.findOne(
     {owner:Meteor.userId()});
   //console.log(JSON.stringify(avatar));
@@ -52,25 +42,25 @@ function updateAvatar(event,instance){
       avatar.x += 5;
       break;
   }
-  console.log(JSON.stringify(avatar));
+  //console.log(JSON.stringify(avatar));
   Avatars.update(avatar._id,avatar);
   var jewel = Jewels.findOne({x:avatar.x,y:avatar.y});
   if (jewel) {
     avatar.score += 1;
     Avatars.update(avatar._id,avatar);
     Jewels.update(jewel._id,
-      {x:Math.floor(Math.random()*20)*10,
-       y:Math.floor(Math.random()*20)*10,
+      {x:Math.floor(Math.random()*60)*10,
+       y:Math.floor(Math.random()*60)*10,
       })
   }
 };
 
 Template.game.onDestroyed(function(){
-  console.log('in onDestroyed');
+  //console.log('in onDestroyed');
   var instance = Template.instance();
   Avatars.remove(instance.avatarid.get())
-  console.log('onDestroyed: removing Avatar '+
-     instance.avatarid.get())
+  //console.log('onDestroyed: removing Avatar '+
+  //   instance.avatarid.get())
 });
 
 Template.game.events({
@@ -85,13 +75,16 @@ Template.game.events({
       var avatar = Avatars.findOne({owner:Meteor.userId()});
       while (avatar) {
          if (avatar) {
-           console.log("removing "+avatar._id);
+           //console.log("removing "+avatar._id);
            Avatars.remove(avatar._id);
          }
          avatar = Avatars.findOne({owner:Meteor.userId()})
       }
-      console.dir(avatarColor);
+      //console.dir(avatarColor);
       name = instance.$("#name").val();
+      if (name=="") {
+        name="anon";
+      }
       avatar = {x:100,y:100,color:avatarColor.value,score:0,name:name,owner:Meteor.userId()}
       Avatars.insert(avatar);
     }
@@ -100,7 +93,7 @@ Template.game.events({
       var avatar = Avatars.findOne({owner:Meteor.userId()});
       while (avatar) {
          if (avatar) {
-           console.log("removing "+avatar._id);
+           //console.log("removing "+avatar._id);
            Avatars.remove(avatar._id);
          }
          avatar = Avatars.findOne({owner:Meteor.userId()})
@@ -121,18 +114,31 @@ function clear() {
 
 function gameLoop() {
   clear();
-  avatars = Avatars.find().fetch();
-  avatars.forEach(function(avatar){
-    ctx.fillStyle = avatar.color;
-    ctx.fillRect(avatar.x,avatar.y,10,10);
-  })
+
   jewels = Jewels.find().fetch();
   jewels.forEach(function(j){
 
     ctx.fillStyle = "red";
     ctx.beginPath();
-    ctx.arc(j.x+5,j.y+5,5,0,Math.PI*2);
+    ctx.arc(j.x+5,j.y+5,10,0,Math.PI*2);
     ctx.fill();
   })
+  avatars = Avatars.find().fetch();
+  if (avatars.length>0){
+    var winner=avatars[0];
+    avatars.forEach(function(avatar){
+      if (avatar.score>winner.score) {
+        winner = avatar;
+      }
+      ctx.fillStyle = avatar.color;
+      ctx.fillRect(avatar.x,avatar.y,10,10);
+    })
+    if (winner.score >= 10) {
+      alert("Game Over! The Winner is "+winner.name+"\n who can be next?");
+      winner.score=0;
+      Avatars.update(winner._id,winner);
+    }
+  }
   raf = window.requestAnimationFrame(gameLoop);
+
 }
