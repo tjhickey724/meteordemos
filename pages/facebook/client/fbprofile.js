@@ -16,8 +16,13 @@ Template.fbprofile.helpers({
 Template.fbinfo.events({
   "click #js-submit"(event,instance){
     name = instance.$('#js-name').val();
+    url = instance.$('#js-url').val();
+    bio = instance.$('#js-bio').val();
     console.log('just read '+name);
     this.user.name = name;
-    Profiles.update(this.user._id,this.user);
+    this.user.url = url;
+    this.user.bio = bio;
+    var zz = Profiles.update(this.user._id,this.user);
+    Router.go('/fbuser/'+this.user._id);
   }
 })

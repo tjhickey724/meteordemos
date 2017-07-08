@@ -8,3 +8,17 @@ div.fb-post {
 textarea#fb-posttext{
   background-color:rgb(250,240,230);
 }
+
+#bio-img{
+  padding:1em;
+  margin:1em;
+}
+#bio {
+  font: italic 18pt 'New Times Roman';
+  margin:1em;
+  padding:1em;
+}
+
+.fbrmpost {
+  float:right;
+}

@@ -15,8 +15,19 @@
 
 <template name="fbshowpost">
   <div class="fb-post">
-    {{p.createdAt}}<br>
-    {{p.name}}<br>
+    <b>{{p.name}}</b> :: <i>{{p.createdAt}}</i>
+    {{#if owner p}}
+       <span class="glyphicon glyphicon-remove fbrmpost" aria-hidden="true"></span>
+    {{/if}}
+
+    <br>
     {{p.text}}
+    <br>
+      {{#if likes p}}
+         <span class="glyphicon glyphicon-thumbs-down fbunlikepost" aria-hidden="true"></span>
+      {{else}}
+        <span class="glyphicon glyphicon-thumbs-up fblikepost" aria-hidden="true"></span>
+      {{/if}}
+      {{numlikes p}} likes
   </div>
   </template>

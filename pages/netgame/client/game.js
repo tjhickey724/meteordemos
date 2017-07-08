@@ -47,6 +47,7 @@ function updateAvatar(event,instance){
   Avatars.update(avatar._id,avatar);
   var jewel = Jewels.findOne({x:avatar.x,y:avatar.y});
   if (jewel) {
+    (new Audio('/sounds/good.wav')).play();
     avatar.score += 1;
     Avatars.update(avatar._id,avatar);
     Jewels.update(jewel._id,

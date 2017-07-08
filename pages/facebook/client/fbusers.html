@@ -12,12 +12,12 @@
 
 <template name="fbperson">
   <tr>
-    <td>{{u.name}}</td>
+    <td><a href="fbuser/{{u._id}}">{{u.name}}</a></td>
     <td>
       {{#if isFriend}}
-        <button id="js-defriend" class="btn btn-sm">Defriend</button>
+        <button id="js-defriend" class="btn btn-sm">Stop Following</button>
       {{else}}
-        <button id="js-friend" class="btn btn-sm">Add friend</button>
+        <button id="js-friend" class="btn btn-sm">Follow</button>
       {{/if}}
     </td>
   </tr>
