@@ -4,6 +4,8 @@
 		<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
+
+
 		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed"
@@ -13,13 +15,19 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
+
 		      <a class="navbar-brand" href="{{pathFor 'home'}}">
-		      	Meteor Demos</a>
+		      	Meteor Demos
+					</a>
 		    </div>
+
+
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav">
+
+
 							<li class="dropdown">
 							 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								 About  <span class="caret"></span></a>
@@ -34,6 +42,7 @@
 
 							<li><a href="{{pathFor 'apidemo'}}">API Demos</a></li>
 							<li><a href="{{pathFor 'userList'}}">Servers</a></li>
+							<li><a href="{{pathFor 'sandbox'}}">Sandbox</a></li>
 
 							<li class="dropdown">
 				       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
