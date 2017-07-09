@@ -12,7 +12,7 @@
 <template name="fbinfo">
   Your Full Name:
     <input type="text" id="js-name" value="{{user.name}}">
-    <br>
+  <br>
   A link to your picture:
     <input type="text" id="js-url" value="{{user.url}}">
     <br>
@@ -20,5 +20,12 @@
     <textarea id="js-bio" cols="100%" rows="5">{{user.bio}}</textarea>
     <br>
 
+  <br>
+
     <button id="js-submit" class="btn btn-info">Update Profile</button>
+    <div id="myfbprofile">
+    {{#let user=user}}
+    {{> fbuser user=user}}
+    {{/let}}
+    </div>
 </template>

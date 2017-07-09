@@ -20,20 +20,44 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav">
-							<li><a href="{{pathFor 'about'}}">About</a></li>
-							<li><a href="{{pathFor 'sponsors'}}">Sponsors</a></li>
-							<li><a href="{{pathFor 'pokemon'}}">Pokemon</a></li>
-							<li><a href="{{pathFor 'draw'}}">Draw</a></li>
-							<li><a href="{{pathFor 'graphics'}}">Bounce</a></li>
-							<li><a href="{{pathFor 'game'}}">Networked Game</a></li>
-							<li><a href="{{pathFor 'firefly'}}">Firefly</a></li>
-							<li><a href="{{pathFor 'contact'}}">Contact us</a></li>
-							<li><a href="{{pathFor 'chat'}}">Chat</a></li>
+							<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								 About  <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="{{pathFor 'about'}}">About Us</a></li>
+									<li><a href="{{pathFor 'sponsors'}}">Our Sponsors</a></li>
+									<li><a href="{{pathFor 'contact'}}">Contact us</a></li>
+									<li><a href="{{pathFor 'chat'}}">Chat with us</a></li>
+									<li role="separator" class="divider"></li>
+								</ul>
+							</li>
+
 							<li><a href="{{pathFor 'apidemo'}}">API Demos</a></li>
-							<li><a href="{{pathFor 'userList'}}">Users</a></li>
-							<li><a href="{{pathFor 'fbprofile'}}">Profile</a></li>
-							<li><a href="{{pathFor 'fbusers'}}">Friends</a></li>
-							<li><a href="{{pathFor 'fbtimeline'}}">Timeline</a></li>
+							<li><a href="{{pathFor 'userList'}}">Servers</a></li>
+
+							<li class="dropdown">
+				       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								 Facebook Lite <span class="caret"></span></a>
+				        <ul class="dropdown-menu">
+									<li><a href="{{pathFor 'fbprofile'}}">Profile</a></li>
+									<li><a href="{{pathFor 'fbusers'}}">Members</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="{{pathFor 'fbtimeline'}}">Timeline</a></li>
+				        </ul>
+			        </li>
+
+							<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								 Games <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="{{pathFor 'pokemon'}}">Pokemon</a></li>
+									<li><a href="{{pathFor 'draw'}}">Draw</a></li>
+									<li><a href="{{pathFor 'graphics'}}">Bounce</a></li>
+									<li><a href="{{pathFor 'game'}}">Networked Game</a></li>
+									<li><a href="{{pathFor 'firefly'}}">Firefly</a></li>
+									<li role="separator" class="divider"></li>
+								</ul>
+							</li>
 						</ul>
 			    <ul class="nav navbar-nav navbar-right">
 			            {{> loginButtons}} <!-- here -->

@@ -19,6 +19,12 @@ textarea#fb-posttext{
   padding:1em;
 }
 
+#myfbprofile {
+  border:thick solid black;
+  padding:1em; margin:1em;
+  background: #ddeeff
+}
+
 .fbrmpost {
   float:right;
 }

@@ -1,5 +1,5 @@
 <template name="fbusers">
-  <h1>MiniFaceBook User List</h1>
+  <h1>Members' Profiles</h1>
   <hr>
   <table class="table table-bordered table-striped">
     <tbody>
@@ -12,6 +12,8 @@
 
 <template name="fbperson">
   <tr>
+
+    <td><img src="{{u.url}}" height="100px"></td>
     <td><a href="fbuser/{{u._id}}">{{u.name}}</a></td>
     <td>
       {{#if isFriend}}
