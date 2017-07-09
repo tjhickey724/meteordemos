@@ -1,5 +1,5 @@
 <template name="fbprofile">
-  <h1>Mini-FB Profile</h1>
+
   {{#if currentUser}}
     {{> fbinfo user=user}}
   {{else}}
@@ -10,6 +10,10 @@
 </template>
 
 <template name="fbinfo">
+  <a href="/fbusers" class="btn  btn-primary">See Your Follows</a>
+  <a href="/fbtimeline" class="btn btn-primary">See Posts</a>
+    <h1>Profile</h1>
+  <hr>
   Your Full Name:
     <input type="text" id="js-name" value="{{user.name}}">
   <br>
