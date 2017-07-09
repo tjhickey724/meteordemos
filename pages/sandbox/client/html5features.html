@@ -1,0 +1,44 @@
+<template name="html5features">
+  <h1>Interesting HTML5 features</h1>
+  <h2> Geolocation </h2>
+  <p>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation">
+      more info
+    </a>
+    <br>
+    Lat: {{position.coords.latitude}} <br>
+    Lon: {{position.coords.longitude}}
+  </p>
+
+  <h2>Device Orientiation</h2>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation">
+    more info
+  </a>
+  <p>
+    absolute:{{orientation.absolute}}<br>
+    alpha:{{orientation.alpha}}<br>
+    beta:{{orientation.beta}}<br>
+    gamma:{{orientation.gamma}}<br>
+
+  </p>
+
+  <h2>Cameras</h2>
+  <p>
+    <a href="https://developer.mozilla.org/en-US/docs/Archive/B2G_OS/API/Camera_API/Introduction">
+      more info
+    </a>
+    <br>
+    Take a picture: <input type="file" id="take-picture" accept="image/*"><br>
+
+  </p>
+
+  <h2>Audio/Video</h2>
+  <p>
+    <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content">
+      more info
+    </a>
+    <br>
+    
+  </p>
+
+</template>

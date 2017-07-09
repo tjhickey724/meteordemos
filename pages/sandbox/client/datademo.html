@@ -1,0 +1,15 @@
+<template name="datademo">
+  <h1>Data Demo</h1>
+  <p> This is an example of passing data into a template from the router!</p>
+  <p>
+    Here is my name: {{name}}<br>
+    and here is my birthyear {{year}}<br>
+    and here is a list of colors:
+    <ul>
+      {{#each c in colors}}
+        <li>{{c}}</li>
+      {{/each}}
+    </ul>
+    and this page was last loaded at {{time}}
+  </p>
+</template>
