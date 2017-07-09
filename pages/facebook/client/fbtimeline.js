@@ -54,6 +54,6 @@ Template.fbshowpost.events({
     var zz = _.contains(this.p.likes,Meteor.userId());
     console.log(zz);
     if (zz)
-        Posts.update("AhnL4H6YtaSzpESpQ",{$pull:{likes:Meteor.userId()}})
+        Posts.update(this.p._id,{$pull:{likes:Meteor.userId()}})
   },
 })
