@@ -25,6 +25,7 @@ Meteor.methods({
         "/degrees";
 
     console.log(url);
+    
     const z = Meteor.http.call("get",url);
       return z.content;
   },
